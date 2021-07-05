@@ -17,6 +17,7 @@ HRESULT Timer::Init()
 		QueryPerformanceCounter((LARGE_INTEGER*)&lastTime);
 		timeScale = 1.0f / periodFrequency;
 	}
+	// 주파수 측정이 불가능한 경우
 	else
 	{
 		isHardware = false;
@@ -38,6 +39,7 @@ void Timer::Tick(float lockFPS)
 	}
 	timeElapsed = (currTime - lastTime) * timeScale;
 
+	// 프레임 제한
 	if (lockFPS > 0.0f)
 	{
 		while (timeElapsed < (1.0f / lockFPS))
@@ -54,12 +56,14 @@ void Timer::Tick(float lockFPS)
 		}
 	}
 
+	// 월드타임 계산
 	if(isGameStart)
 		worldTime += timeElapsed;
 
 	FPSFrameCount++;
 	FPSTimeElapsed += timeElapsed;
 
+	// 초당 프레임 계산
 	if (FPSTimeElapsed > 1.0f)
 	{
 		frameRate = FPSFrameCount;

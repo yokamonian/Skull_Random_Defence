@@ -5,18 +5,9 @@ GameNode* SceneManager::currentScene = nullptr;
 GameNode* SceneManager::loadingScene = nullptr;
 GameNode* SceneManager::readyScene = nullptr;
 
-//콜백 함수
-// 변경할 메인씬을 초기화 하는 것.
+
 DWORD CALLBACK LoadingThread(LPVOID pvParam)
 {
-	// 쓰레드 종료 시점 (방법)
-	/*
-		1. 호출된 함수가 반환이 될 때 (우리가 사용할 방법)
-		2. 호출된 함수 내부에서 ExitThread()를 호출했을 때
-		3. 동일한 프로세스나 다른 프로세스에서 TerminateThread()를 호출했을 때
-		4. 현재 쓰레드가 포함된 프로세스가 종료될 때
-	*/
-
 	SceneManager::readyScene->Init();
 	SceneManager::currentScene = SceneManager::readyScene;
 
@@ -66,7 +57,7 @@ GameNode * SceneManager::AddScene(string key, GameNode * scene)
 	if (scene == nullptr)
 		return nullptr;
 
-	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // <string, GameNode*타입이고,> ( key, scene ) 씬을 초기화 해서 맵에다가 insert를 한다.
+	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // 씬을 초기화 후 맵에 insert
 
 	return scene;
 }
@@ -76,18 +67,17 @@ GameNode * SceneManager::AddLoadingScene(string key, GameNode * scene)
 	if (scene == nullptr)
 		return nullptr;
 
-	mapLoadingSceneDatas.insert(pair<string, GameNode*>(key, scene)); // <string, GameNode*타입이고,> ( key, scene ) 씬을 초기화 해서 맵에다가 insert를 한다.
-
+	mapLoadingSceneDatas.insert(pair<string, GameNode*>(key, scene)); // 씬을 초기화 후 맵에 insert
 	return scene;
 }
 
-HRESULT SceneManager::ChangeScene(string sceneName) //키를 들고와서
+HRESULT SceneManager::ChangeScene(string sceneName)
 {
 	map<string, GameNode*>::iterator it;
 
 	it = mapSceneDatas.find(sceneName);
 
-	if (it == mapSceneDatas.end()) //없으면 SceneChange에 실패했다를 알려주고.
+	if (it == mapSceneDatas.end()) // 없을 시
 	{
 		return E_FAIL;
 	}

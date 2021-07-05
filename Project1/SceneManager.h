@@ -13,9 +13,9 @@ private:
 	map<string, GameNode*> mapLoadingSceneDatas;
 
 public:
-	static GameNode* currentScene; //멤버 변수로 되어있기 때문에 접근할 때 전역변수와 차이점이 있다.
-	static GameNode* loadingScene;
-	static GameNode* readyScene;	
+	static GameNode* currentScene; // 현재 씬
+	static GameNode* loadingScene; // 로딩 씬
+	static GameNode* readyScene;   // 초기화를 위한 예비 씬
 
 public:
 
@@ -25,8 +25,8 @@ public:
 	void Render(HDC hdc);	// 프레임 단위 출력 (이미지, 텍스트 등)
 
 	// 씬 추가
-	GameNode* AddScene(string key, GameNode* scene); //키와 scene을 넣으면 map에 저장할 함수
-	GameNode* AddLoadingScene(string key, GameNode* scene); //키와 scene을 넣으면 map에 저장할 함수
+	GameNode* AddScene(string key, GameNode* scene);
+	GameNode* AddLoadingScene(string key, GameNode* scene);
 	
 
 	// 씬 체인지

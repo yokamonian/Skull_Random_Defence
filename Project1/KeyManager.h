@@ -9,15 +9,6 @@ using namespace std;
 
 class KeyManager : public SingletonBase<KeyManager>
 {
-	//protected:
-	//	static KeyManager* instance;
-	//
-	//	SingletonBase() {};
-	//	~SingletonBase() {};
-	//
-	//public:
-	//	static KeyManager* GetSingleton();	// instance를 외부에 노출
-	//	void ReleaseSingleton();	// 메모리 할당된 instance 해제
 private:
 	bitset<KEY_MAX_COUNT>	keyUp;
 	bitset<KEY_MAX_COUNT>	keyDown;

@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Storage.h"
 
+// 스컬 동작구분
 enum class SKULLMode
 {
 	IDLE,
@@ -14,28 +15,28 @@ class AstarTile;
 class Skull : public GameObject
 {
 private:
-	int damage;
-	int abilityPower;
-	int attackSpeed;
-	int skillCount;
-	int growthDmg;
-	int growthAp;
-	int upgradeDmg;
-	int upgradeAp;
-	int upgradeAs;
-	int upgradeSc;
-	int idleFrame;
-	int attackFrame;
-	int skillFrame;
-	Image* img;
-	SkullData* info;
-	AstarTile* nowTile;
-	ISOTILE* nowSkullTile;
-	bool isSelected = false;
-	Storage* storage;
-	SKULLMode skullMode;
-	POINT prevPos;
-	POINT fieldPos;
+	int damage;			        // 데미지
+	int abilityPower;	        // 공속
+	int attackSpeed;	        // 스킬 데미지
+	int skillCount;		        // 스킬에 필요한 타격수
+	int growthDmg;		        // 성장 데미지(킬)
+	int growthAp;		        // 성장 스킬 데미지(킬)
+	int upgradeDmg;		        // 성급업 데미지
+	int upgradeAp;		        // 성급업 공속
+	int upgradeAs;		        // 성급업 스킬에 필요한 타격수
+	int upgradeSc;		        // 성급업 스킬데미지
+	int idleFrame;		        // 기본 동작 애니메이션 프레임
+	int attackFrame;	        // 공격 동작 애니메이션 프레임
+	int skillFrame;		        // 스킬 동작 애니메이션 프레임
+	Image* img;			        // 스컬 이미지 이름
+	SkullData* info;	        // 스컬 정보
+	AstarTile* nowTile;         // 스컬 현재 위치
+	ISOTILE* nowSkullTile;	    // 스컬이 존재하는 타일 위치
+	bool isSelected = false;	// (스컬이)선택되었는지
+	Storage* storage;			// 스컬 저장공간
+	SKULLMode skullMode;		// 스컬의 동작상태
+	POINT prevPos;				// 스컬의 이전 위치
+	POINT fieldPos;				// 필드 위치
 public:
 	virtual HRESULT Init();
 	void SetSkull(TILE_NUM_INFO buildPos, string* skullName);

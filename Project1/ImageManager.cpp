@@ -15,9 +15,11 @@ void ImageManager::Release()
 
 Image* ImageManager::AddImage(string strKey, int width, int height)
 {
+	// 이미지 검색(기존의 이미지가 존재하는 경우) 후 반환
 	Image* image = FindImage(strKey);
 	if (image) return image;
 
+	// 이미지 추가
 	image = new Image();
 	if (FAILED(image->Init(width, height)))
 	{
@@ -26,7 +28,7 @@ Image* ImageManager::AddImage(string strKey, int width, int height)
 
 		return nullptr;
 	}
-
+	// 이미지 + 키워드 저장
 	mapImageDatas.insert(make_pair(strKey, image));
 
 	return image;
@@ -89,7 +91,7 @@ void ImageManager::DeleteImage(string strKey)
 		(iter->second)->Release();
 		SAFE_DELETE((iter->second));
 
-		mapImageDatas.erase(iter);	// 맵이 가지고 있던 데이터중 해당 이터레이터를 삭제 예를 들면 10개였던게 9개가 됨
+		mapImageDatas.erase(iter);
 	}
 }
 

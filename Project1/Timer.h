@@ -12,10 +12,10 @@ private:
 	__int64			lastTime;				// 이전 시간(고성능 타이머 값)
 	__int64			periodFrequency;		// 고성능 타이머의 주파수(초당 진동수), 지원하지 않으면 0 반환
 
-	unsigned long	frameRate;
-	unsigned long	FPSFrameCount;
-	float			FPSTimeElapsed;
-	float			worldTime;
+	unsigned long	frameRate;				// 프레임 수
+	unsigned long	FPSFrameCount;			// 초당 프레임
+	float			FPSTimeElapsed;			// 프레임 경과량
+	float			worldTime;				// 월드 타임
 	bool			isGameStart;
 
 public:

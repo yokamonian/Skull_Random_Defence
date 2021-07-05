@@ -3,6 +3,7 @@
 class Image
 {
 public:
+	// 이미지 정보 타입
 	enum IMAGE_LOAD_KIND
 	{
 		RESOURCE,
