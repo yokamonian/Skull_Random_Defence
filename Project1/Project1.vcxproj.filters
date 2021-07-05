@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="2dFrameWork">
+      <UniqueIdentifier>{24dd4739-4d6f-4d3b-ace1-d63b25792656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\Manager">
+      <UniqueIdentifier>{694cd546-8a1f-4300-9129-8b8f0781a29c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{b48ff530-4c31-403c-8d16-a2e5440f1f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\Scene">
+      <UniqueIdentifier>{6a2cb3f5-5ad5-4f0f-b183-47c93d166df4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\Object">
+      <UniqueIdentifier>{a65e0c07-c896-4781-bda9-311365420bf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\Singleton">
+      <UniqueIdentifier>{36a9d926-9dca-4037-97fb-bb0d7b387bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\UI">
+      <UniqueIdentifier>{3f243e29-b6b5-4808-87ef-7c46b42cb35e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2dFrameWork\TileInfo">
+      <UniqueIdentifier>{638dfa0b-6a2b-44cd-89af-1631b682656d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameNode.cpp">
+      <Filter>2dFrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>2dFrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>2dFrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>2dFrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="StageScene.cpp">
+      <Filter>2dFrameWork\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTileInfo.cpp">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="AstarScene.cpp">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="Skull.cpp">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>2dFrameWork\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StageUI.cpp">
+      <Filter>2dFrameWork\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitDataBase.cpp">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="AstarTile.cpp">
+      <Filter>2dFrameWork\TileInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Storage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameNode.h">
+      <Filter>2dFrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonBase.h">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>2dFrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>2dFrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>2dFrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>2dFrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleLog.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StageScene.h">
+      <Filter>2dFrameWork\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTileInfo.h">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="AstarScene.h">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="Skull.h">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>2dFrameWork\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StageUI.h">
+      <Filter>2dFrameWork\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitDataBase.h">
+      <Filter>2dFrameWork\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="AstarTile.h">
+      <Filter>2dFrameWork\TileInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>2dFrameWork\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
