@@ -88,9 +88,10 @@ void ImageManager::DeleteImage(string strKey)
 	map<string, Image*>::iterator iter = mapImageDatas.find(strKey);
 	if (iter != mapImageDatas.end())
 	{
+		// second(value)를 메모리 해제
 		(iter->second)->Release();
 		SAFE_DELETE((iter->second));
-
+		// key, value (pair) 를 메모리 해제
 		mapImageDatas.erase(iter);
 	}
 }
@@ -103,10 +104,8 @@ void ImageManager::DeleteAll()
 		if (iter->second != nullptr)
 		{
 			// second(value)를 메모리 해제
-
 			(iter->second)->Release();
 			SAFE_DELETE((iter->second));
-
 			// key, value (pair) 를 메모리 해제
 			iter = mapImageDatas.erase(iter);
 			// 지금 삭제하는 요소의 다음 요소를 자동으로 반환

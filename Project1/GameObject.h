@@ -11,10 +11,10 @@ protected:
 	int frame;
 
 public:
-	virtual HRESULT Init() = 0;
-	virtual void Release() = 0;
-	virtual void Update() = 0;
-	virtual void Render(HDC hdc) = 0;
+	virtual HRESULT Init() = 0;			// 초기화
+	virtual void Release() = 0;			// 해제
+	virtual void Update() = 0;			// 업데이트
+	virtual void Render(HDC hdc) = 0;	// 랜더
 
 	GameObject();
 	virtual~GameObject();

@@ -7,9 +7,9 @@ class Enemy;
 class EnemyManager : public GameNode
 {
 private:
-	ISOTILE** tiles;
-	vector<Enemy*> enemies;
-	Enemy* enemy;
+	ISOTILE** tiles;			// 적 위치 타일
+	vector<Enemy*> enemies;		// 적 유닛 집합
+	Enemy* enemy;				// 적 유닛
 	stack<Enemy*> stEnemies;
 	list<pair<int, int>>* astar;
 	TILE_NUM_INFO spawnPos;

@@ -52,6 +52,7 @@ void EnemyManager::Render(HDC hdc)
 	}
 }
 
+// A_Star 경로 설정
 void EnemyManager::SetAstarPath(list<pair<int, int>>* _astar)
 {
 	for (auto it = enemies.begin(), end = enemies.end(); it != end; it++)
@@ -64,8 +65,6 @@ void EnemyManager::SetAstarPath(list<pair<int, int>>* _astar)
 			(*it)->SetIsSpawn(true);
 		}
 	}
-
-	//astar->pop_back();
 }
 
 void EnemyManager::SetEnemy(int id, TILE_NUM_INFO _pos)

@@ -20,7 +20,6 @@ public:
 	virtual void Update(float lockFPS = 0.0f);
 	virtual void Render(HDC hdc);
 
-
 	float GetWorldCount();
 	float GetCurrTime();
 

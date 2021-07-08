@@ -3,6 +3,7 @@
 #include "pch.h"
 #include <utility>
 
+// 아이콘
 typedef struct tagIcon
 {
 	POINT iconPos;
@@ -10,6 +11,7 @@ typedef struct tagIcon
 	int currframe;
 }Icon;
 
+// 버튼
 typedef struct tagButton
 {
 	Icon	ButtIcon;
@@ -26,31 +28,43 @@ class StageScene : public GameNode
 {
 private:
 	// 스컬
-	Skull* skull;
-	Skull* selectSkull = nullptr;
-	vector<Skull*> vecSkulls;
-	stack<Skull*> stSkulls;
-	int skullLimitCount = 20;
-	string skullName;
-	// 타일
-	ISOTILE** tiles;
-	TILE_NUM_INFO start;
-	TILE_NUM_INFO end;
+	Skull* skull;					// 스컬
+	Skull* selectSkull = nullptr;	// 선택된 스컬
+	vector<Skull*> vecSkulls;		// 필드 위의 스컬(저장용)
+	stack<Skull*> stSkulls;			// 오브젝트 풀(스컬)
+	int skullLimitCount = 20;		// 스컬 수 제한
+	string skullName;				// 스컬 타입(이름)
+	Card* skullCard[4];				// 스컬 구매 카드
+	POINT cardPos[4];				// 카드 위치값
+	Storage** storage;				// 저장소
+	Storage* prevStorage;			// (선택된 스컬의)이전 저장소
 
-	bool isHide = false;
-	bool isLock = false;
-	bool isSelect = false;
-	bool isWave = false;
-	bool isTimer = false;
-	bool isSpawn = false;
+	// 타일
+	ISOTILE** tiles;				// 모든 타일 정보
+	TILE_NUM_INFO start;			// 시작점
+	TILE_NUM_INFO end;				// 도착점
+	POINT ptSelected;				// 선택된 타일맵
+
+	bool isHide = false;			// 카드 구매 아이콘 숨김 여부
+	bool isLock = false;			// 카드 구매 아이콘 잠김 여부
+	bool isSelect = false;			// 선택 여부
+	bool isWave = false;			// 웨이브 여부
+	bool isTimer = false;			// 타이머 시작 여부
+	bool isSpawn = false;			// 적 스폰 여부
+
+	// UI
 	Button cardLockB;
 	Button startB;
 	Button cardB;
 	Icon timer;
 
+	// 시간 관련
 	float WaveTime;
+	int waveDeltaTime;
+	int frame;
 	float elapsedTime = 0;
 	float countTime = 5.0f;
+
 	Image* inGameScreen;
 	Image* enemyGate;
 	Image* img;
@@ -58,8 +72,6 @@ private:
 	POINT gatePos;
 	int currframeX;
 	int currframeY;
-	int waveDeltaTime;
-	int frame;
 	int elapsedSpawnTime = 0;
 	bool isOpen;
 	int totalGold;
@@ -71,11 +83,6 @@ private:
 	HPEN pen;
 	HPEN pen1;
 
-	Card* skullCard[4];
-	POINT cardPos[4];
-	POINT ptSelected;
-	Storage** storage;
-	Storage* prevStorage;
 	Portal* portal;
 
 	EnemyManager* enemymgr;

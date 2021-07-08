@@ -10,20 +10,20 @@ HRESULT Skull::Init()
 
 void Skull::SetSkull(TILE_NUM_INFO buildPos, string* skullName)
 {
+	// 유닛 데이터 베이스에서 스컬 정보 불러오기
 	SkullData* skullInfo = UnitDataBase::GetSingleton()->GetSkullInfo(*(skullName));
 
+	// 타일 위치에 유닛 좌표 설정
 	int posX, posY;
-
 	if(buildPos.idX % 2 == 0)
 		posX = ISO_START_X + ((buildPos.idX + 1) * ISO_TILE_SIZE_X);
 	else if(buildPos.idX % 2 == 1)
 		posX = ISO_START_X + ((buildPos.idX + 1) * ISO_TILE_SIZE_X) - ISO_TILE_HALF_SIZE_X;
-
 	posY = ISO_START_Y + (buildPos.idY * ISO_TILE_HALF_SIZE_Y);
-
 	pos = { posX, posY };
-	img = ImageManager::GetSingleton()->FindImage(skullInfo->skullName);
 
+	// 스컬 세팅
+	img = ImageManager::GetSingleton()->FindImage(skullInfo->skullName);
 	this->damage = skullInfo->damage;
 	this->abilityPower = skullInfo->abilityPower;
 	this->attackSpeed = skullInfo->attackSpeed;
@@ -76,6 +76,7 @@ void Skull::Release()
 
 void Skull::Update()
 {
+	// 상태에 다른 애니메이션 설정 업데이트
 	frame++;
 	if (frame % 7 == 6)
 	{

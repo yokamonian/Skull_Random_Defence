@@ -16,6 +16,7 @@ void KeyManager::Release()
 {
 }
 
+// 키를 한번 눌렀을 때
 bool KeyManager::IsOnceKeyDown(int key)
 {
 	// GetAsyncKeyState(VK_...)	
@@ -27,6 +28,7 @@ bool KeyManager::IsOnceKeyDown(int key)
 	*/
 	if (GetAsyncKeyState(key) & 0x8000)
 	{
+		// 누른 판정이 없다면
 		if (!this->GetKeyDown()[key])
 		{
 			this->SetKeyDown(key, true);
@@ -41,6 +43,7 @@ bool KeyManager::IsOnceKeyDown(int key)
 	return false;
 }
 
+// 키를 눌렀다 뗐을 때
 bool KeyManager::IsOnceKeyUp(int key)
 {
 	if (GetAsyncKeyState(key) & 0x8000)
@@ -59,6 +62,7 @@ bool KeyManager::IsOnceKeyUp(int key)
 	return false;
 }
 
+// 키를 누르고 있을 때
 bool KeyManager::IsStayKeyDown(int key)
 {
 	if (GetAsyncKeyState(key) & 0x8000)

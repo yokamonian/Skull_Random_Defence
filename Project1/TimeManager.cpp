@@ -20,6 +20,7 @@ void TimeManager::Release()
 
 void TimeManager::Update(float lockFPS)
 {
+	// 타이머 함수 실행
 	if (timer)
 	{
 		timer->Tick(lockFPS);

@@ -50,6 +50,7 @@ void Enemy::Render(HDC hdc)
 	}
 }
 
+// 적 유닛 세팅
 void Enemy::SetEnemy(POINT spawnPos, string* enemyName)
 {
 	EnemyData* enemy = UnitDataBase().GetSingleton()->GetEnemyInfo(*(enemyName));
@@ -77,6 +78,7 @@ float Enemy::GetTime(FPOINT startpos, FPOINT destpos)
 	return Time;
 }
 
+// 동작 프레임 지정
 void Enemy::frameByMode()
 {
 	frame++;
@@ -134,14 +136,18 @@ void Enemy::frameByMode()
 		currFrameX++;
 	}
 }
-
+	// 적 이동 관련 설정
 	void Enemy::MoveAstar()
 	{
+		// 도착지까지 이동(이동 시작 전)
 		if (timeAmount >= 1.0f)
 		{
+			// 이동 경로가 비어있지 않은경우
 			if (!destOrder.empty())
 			{
+				// 도착시간 리셋
 				TimeManager::GetSingleton()->ResetTestTime();
+				// 다음 도착 지점 갱신
 				destpos = { (float)destOrder.back().first, (float)destOrder.back().second };
 				destOrder.pop_back();
 				startpos = { (float)pos.x, (float)pos.y };
@@ -151,6 +157,7 @@ void Enemy::frameByMode()
 				timeAmount = TimeManager::GetSingleton()->GetTestTime() / time;
 			}
 		}
+		// 도착지까지 이동(이동 중)
 		else if (timeAmount < 1.0f)
 		{
 			timeAmount = TimeManager::GetSingleton()->GetTestTime() / time;
@@ -159,6 +166,7 @@ void Enemy::frameByMode()
 		}
 	}
 
+	// 적 유닛 상태 판정
 	void Enemy::EnemyBehavior()
 	{
 		if (healthPoint > 0)

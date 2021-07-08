@@ -3,6 +3,7 @@
 #include "pch.h"
 #include <utility>
 
+// 적 유닛의 상태
 enum class EnemyMode
 {
 	IDLE,
@@ -10,33 +11,32 @@ enum class EnemyMode
 	DIE
 };
 
-
 class StageScene;
 class Portal;
 class Enemy : protected GameObject
 {
 private:
-	int damage;
-	int attackSpeed;
-	int moveSpeed;
-	int healthPoint;
-	int effectFrameX;
-	float distX = 0;
-	float distY = 0;
-	int idleFrame;
-	int attackFrame;
-	int dieFrame;
-	int EffectFrame;
+	int damage;				// 데미지
+	int attackSpeed;		// 공속
+	int moveSpeed;			// 이속
+	int healthPoint;		// 체력
+	int effectFrameX;		// 이펙트 프레임 시작점
+	float distX = 0;		// x축 거리
+	float distY = 0;		// y축 거리
+	int idleFrame;			// 기본 동작 프레임
+	int attackFrame;		// 공격 동작 프레임
+	int dieFrame;			// 사망 동작 프레임
+	int EffectFrame;		// 이펙트 프레임 수
 	bool isRender;
 	bool isFire = false;
-	string effect;
+	string effect;			// 이펙트 이름
 	float timeAmount;
 	float time;
 	Image* enemyImg;
 	Image* attackImg;
-	FPOINT destpos;
-	FPOINT startpos;
-	POINT PortalPos;
+	FPOINT destpos;			// 도착점
+	FPOINT startpos;		// 출발점
+	POINT PortalPos;		// 포탈 위치
 	FPOINT fPos;
 	EnemyMode e_Mode;
 	RECT target;

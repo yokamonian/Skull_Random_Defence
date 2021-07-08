@@ -61,6 +61,7 @@ public:
 			keyFrameHeight = 0;
 		}
 	} IMAGE_INFO, * LPIMAGE_INFO;
+
 private:
 	IMAGE_INFO* imageInfo;			// 이미지정보 구조체 포인터
 	char* fileName;			// 파일경로 + 이름

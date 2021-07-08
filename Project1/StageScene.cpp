@@ -89,11 +89,9 @@ HRESULT StageScene::Init()
 	pen1 = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
 	pen = CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
 
-
+	// 유닛 세팅+초기화 및 알고리즘 초기화
 	UnitDataBase::GetSingleton()->Init();
-
 	AstarScene::GetSingleton()->Init();
-
 	astarPath = AstarScene::GetSingleton()->StartAstar(start);
 	if (astarPath != NULL)
 	{
@@ -104,7 +102,7 @@ HRESULT StageScene::Init()
 		effectImg = ImageManager::GetSingleton()->AddImage("적_법사_공격이펙트", "Image/적_법사_이펙트.bmp", 0, 0, 318, 90, 6, 1, true, RGB(255, 255, 255));
 	}
 
-
+	// UI버튼 세팅
 	startB.ButtIcon.iconPos = { 400, 630 };
 	cardLockB.ButtIcon.iconPos = { 400, 685 };
 	cardB.ButtIcon.iconPos = { 400, 740 };
@@ -166,24 +164,27 @@ void StageScene::Release()
 
 void StageScene::Update()
 {
+	// 게임 시작 화면 시
 	if (isOpen)
 	{
+		// 남은 시간 체크 및 웨이브 처리
 		elapsedTime = TimeManager::GetSingleton()->GetWaveTime();
 
 		float limitTime = WaveTime - elapsedTime;
+		// 웨이브 시작
 		if (limitTime == WaveTime)
 		{
 			TimeManager::GetSingleton()->SetIsWaveTime(true);
 			isWave = true;
 			currframeY = 0;
 		}
-
+		// 웨이브 시작 타이머 구간 처리
 		else if (limitTime > 20 && limitTime <= 25)
 		{
 			timer.currframe = 25 - limitTime;
 			if (timer.currframe < 0) timer.currframe = 0;
 		}
-
+		// 웨이브 라운드 시작 및 스폰 처리
 		else if (limitTime > 0 && limitTime <= 20)
 		{
 			if (limitTime > 19 && isSpawn == false)
@@ -203,14 +204,14 @@ void StageScene::Update()
 			}
 			
 		}
-
+		// 웨이브 중이 아닐때 포탈 상태
 		if (!isWave)
 		{
 			currframeX = 0;
 			currframeY = 4;
 			isSpawn = false;
 		}
-
+		// 웨이브 중의 포탈 상태 애니메이션
 		if (isWave)
 		{
 			frame++;
@@ -229,6 +230,7 @@ void StageScene::Update()
 		}
 	}
 
+	// 스컬 상태 업데이트
 	if (vecSkulls.size() > 0)
 	{
 		for (vector<Skull*>::iterator it = vecSkulls.begin(); it != vecSkulls.end(); it++)
@@ -237,6 +239,7 @@ void StageScene::Update()
 		}
 	}
 
+	// 카드 구매
 	if (KeyManager::GetSingleton()->IsOnceKeyDown(VK_LBUTTON))
 	{
 		ClickButton();
@@ -259,6 +262,8 @@ void StageScene::Update()
 		}
 
 	}
+
+	// 스컬 배치
 	if ((KeyManager::GetSingleton()->IsOnceKeyUp(VK_LBUTTON)))
 	{
 		if (!isWave)
@@ -286,8 +291,10 @@ void StageScene::Render(HDC hdc)
 	}
 	SelectObject(hdc, pen1);
 
+	// 경로 표시 랜더
 	if (astarPath != NULL)
 		DrawPath(hdc);
+	// UI 아이콘 랜더
 	startB.ButtIcon.iconImg->FrameRender(hdc, startB.ButtIcon.iconPos.x, startB.ButtIcon.iconPos.y, 0, startB.ButtIcon.currframe);
 	cardLockB.ButtIcon.iconImg->FrameRender(hdc, cardLockB.ButtIcon.iconPos.x, cardLockB.ButtIcon.iconPos.y, 0, cardLockB.ButtIcon.currframe);
 	cardB.ButtIcon.iconImg->FrameRender(hdc, cardB.ButtIcon.iconPos.x, cardB.ButtIcon.iconPos.y, 0, cardB.ButtIcon.currframe);
@@ -302,6 +309,7 @@ void StageScene::Render(HDC hdc)
 	
 	portal->Render(hdc);
 
+
 	enemyGate->FrameRender(hdc, gatePos.x, gatePos.y - 38, currframeX, currframeY);
 	if (isWave)
 	{
@@ -309,7 +317,7 @@ void StageScene::Render(HDC hdc)
 	}
 	if (timer.currframe >= 0)
 		timer.iconImg->FrameRender(hdc, timer.iconPos.x, timer.iconPos.y, timer.currframe, 0);
-	//StageUI::GetSingleton()->Render(hdc);
+
 	if (!isHide)
 	{
 		for (int i = 0; i < 4; i++)
@@ -628,6 +636,7 @@ void StageScene::SetStorage()
 	}
 }
 
+// 경로 그리기
 void StageScene::DrawPath(HDC hdc)
 {
 	SelectObject(hdc, pen);

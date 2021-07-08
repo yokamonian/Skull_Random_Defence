@@ -123,7 +123,7 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 
 	if (SUCCEEDED(itLoading->second->Init())) //바꿀려고 하는 씬
 	{
-		if (currentScene) //현재 씬은 릴리즈를 해주고
+		if (currentScene) //현재 씬 해제
 		{
 			currentScene->Release();
 		}
@@ -133,13 +133,12 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 
 		currentScene = loadingScene;
 
-		// 멀티쓰레드로 체인지할 메인씬을 초기화한다.   // 멀티쓰레드가 처리할 함수의 주소
+		// 멀티쓰레드로 체인지할 메인씬 초기화
 		HANDLE hThread;
 		DWORD loadThredID;
 		//hThread= CreateThread(NULL, 0, func, NULL, 0, &loadThredID);
 		//CloseHandle(hThread);
-		// 함수이름이 곧 함수의 포인터니까
-		CloseHandle(CreateThread(NULL, 0, LoadingThread, NULL, 0, &loadThredID));  //쓰레드를 다시 닫아준다.
+		CloseHandle(CreateThread(NULL, 0, LoadingThread, NULL, 0, &loadThredID));  //쓰레드 닫기
 
 		return S_OK;
 	}
