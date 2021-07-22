@@ -38,26 +38,27 @@ private:
 	FPOINT startpos;		// 출발점
 	POINT PortalPos;		// 포탈 위치
 	FPOINT fPos;
-	EnemyMode e_Mode;
-	RECT target;
+	EnemyMode e_Mode;		// 현재 상태
+	RECT target;			// 공격 목표
 	ENEMYDATA* enemy;
 	bool isSpawn = false;
-	bool isAstar = false;
-	bool isAttack = false;
+	bool isAstar = false;	// 알고리즘 시전 여부
+	bool isAttack = false;	// 타격 여부
 public:
-	vector<pair<int, int>> destOrder;
+	vector<pair<int, int>> destOrder; // 목표 좌표
 	virtual HRESULT Init();
 	virtual void Release();
 	virtual void Update();
 	virtual void Render(HDC hdc);
 
-	void SetEnemy(POINT spawnPos, string* Name);
-	void SetAstarPos(int posX, int posY) { pos.x = posX; pos.y = posY; destpos.x = posX; destpos.y = posY; }
-	void SetPos(POINT _pos) { pos.x = _pos.x; pos.y = _pos.y; };
+	void SetEnemy(POINT spawnPos, string* Name); // 적 정보 세팅
+	void SetAstarPos(int posX, int posY)		 // 목표 경로 알고리즘 실행
+	{ pos.x = posX; pos.y = posY; destpos.x = posX; destpos.y = posY; }
+	void SetPos(POINT _pos) { pos.x = _pos.x; pos.y = _pos.y; }; // 현재 위치값
 	void SetIsRender(bool b) { isRender = b; }
 	POINT GetPos() { return pos; }
 	bool GetIsRender() { return isRender; }
-	void SaveDestOrder(int X, int Y) { destOrder.push_back(make_pair(X, Y)); }
+	void SaveDestOrder(int X, int Y) { destOrder.push_back(make_pair(X, Y)); } // 목적지 저장
 	float GetTime(FPOINT startpos, FPOINT destpos);
 	void SetAttackMode(bool isAttack)
 	{
@@ -66,9 +67,9 @@ public:
 		else
 			e_Mode = EnemyMode::IDLE;
 	}
-	void frameByMode();
-	void MoveAstar();
-	void EnemyBehavior();
+	void frameByMode();		// 현재 상태에 따른 프레임 세팅
+	void MoveAstar();		// 적 이동 관련 설정
+	void EnemyBehavior();	// 적 유닛 상태 판정
 	bool GetIsSpawn() { return isSpawn; }
 	void SetIsSpawn(bool _isSpawn) { isSpawn = _isSpawn; }
 	bool GetIsAstar() { return isAstar; }

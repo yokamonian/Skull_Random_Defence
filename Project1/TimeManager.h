@@ -6,13 +6,13 @@ class Timer;
 class TimeManager : public SingletonBase<TimeManager>
 {
 private:
-	Timer* timer;
+	Timer* timer;		// 타이머
 	char strText[256];
-	float testTime;
-	float waveTime;
-	bool isTestStart;
-	bool isGameStart;
-	bool isWaveStart;
+	float testTime;		// 알고리즘 내 시간측정 변수
+	float waveTime;		// 웨이브 시간
+	bool isTestStart;	// 알고리즘 시작 여부
+	bool isGameStart;	// 게임 시작 여부
+	bool isWaveStart;	// 웨이브 시작여부
 
 public:
 	virtual HRESULT Init();

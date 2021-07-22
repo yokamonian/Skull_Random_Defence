@@ -57,7 +57,7 @@ GameNode * SceneManager::AddScene(string key, GameNode * scene)
 	if (scene == nullptr)
 		return nullptr;
 
-	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // 씬을 초기화 후 맵에 insert
+	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // (초기화 후) insert
 
 	return scene;
 }
@@ -67,7 +67,7 @@ GameNode * SceneManager::AddLoadingScene(string key, GameNode * scene)
 	if (scene == nullptr)
 		return nullptr;
 
-	mapLoadingSceneDatas.insert(pair<string, GameNode*>(key, scene)); // 씬을 초기화 후 맵에 insert
+	mapLoadingSceneDatas.insert(pair<string, GameNode*>(key, scene));
 	return scene;
 }
 
@@ -82,11 +82,11 @@ HRESULT SceneManager::ChangeScene(string sceneName)
 		return E_FAIL;
 	}
 
-	if (it->second == currentScene) return S_OK; //씬 체인지 동작 없이 S_OK를 리턴해주자.
+	if (it->second == currentScene) return S_OK; 
 
-	if (SUCCEEDED(it->second->Init())) //바꿀려고 하는 씬
+	if (SUCCEEDED(it->second->Init())) // 바꿀려고 하는 씬
 	{
-		if (currentScene) //현재 씬은 릴리즈를 해주고
+		if (currentScene) //(현재 씬)릴리즈
 		{
 			currentScene->Release();
 		}
@@ -105,12 +105,12 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 
 	it = mapSceneDatas.find(sceneName);
 
-	if (it == mapSceneDatas.end()) //없으면 SceneChange에 실패했다를 알려주고.
+	if (it == mapSceneDatas.end()) // 맵이 없을 시
 	{
 		return E_FAIL;
 	}
 
-	if (it->second == currentScene) return S_OK; //씬 체인지 동작 없이 S_OK를 리턴해주자.
+	if (it->second == currentScene) return S_OK;
 
 	// change 중간에 들어갈 로딩씬
 	map<string, GameNode*>::iterator itLoading;
@@ -136,8 +136,6 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 		// 멀티쓰레드로 체인지할 메인씬 초기화
 		HANDLE hThread;
 		DWORD loadThredID;
-		//hThread= CreateThread(NULL, 0, func, NULL, 0, &loadThredID);
-		//CloseHandle(hThread);
 		CloseHandle(CreateThread(NULL, 0, LoadingThread, NULL, 0, &loadThredID));  //쓰레드 닫기
 
 		return S_OK;

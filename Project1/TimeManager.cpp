@@ -25,10 +25,12 @@ void TimeManager::Update(float lockFPS)
 	{
 		timer->Tick(lockFPS);
 	}
+	// 알고리즘 시작시 실행
 	if (isTestStart)
 	{
 		testTime += timer->GetDeltaTime();
 	}
+	// 웨이브 시작 시 실행
 	if (isWaveStart)
 	{
 		waveTime += timer->GetDeltaTime();
@@ -37,6 +39,7 @@ void TimeManager::Update(float lockFPS)
 
 void TimeManager::Render(HDC hdc)
 {
+	// 프레임 및 월드타임 표기
 #ifdef _DEBUG
 	if (timer)
 	{

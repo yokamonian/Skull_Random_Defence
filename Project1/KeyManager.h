@@ -7,6 +7,8 @@ using namespace std;
 
 #define KEY_MAX_COUNT	256	
 
+
+// 키 입력 관리 매니저
 class KeyManager : public SingletonBase<KeyManager>
 {
 private:
@@ -21,6 +23,7 @@ public:
 	bool IsOnceKeyUp(int key);		// 키를 눌렀다 뗐을 때
 	bool IsStayKeyDown(int key);	// 키를 누르고 있을 때
 
+	// 판정
 	bitset<KEY_MAX_COUNT> GetKeyUp() { return keyUp; }
 	bitset<KEY_MAX_COUNT> GetKeyDown() { return keyDown; }
 
