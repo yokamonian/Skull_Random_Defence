@@ -3,6 +3,10 @@
 
 
 class Skull;
+/// <summary>
+/// AstarTile : MapTileInfo의 타일 정보를 기반으로 Astar알고리즘 실행을 위한 타일 각개 정보를 담는 클래스.
+///				단일 타일 정보를 담고 있다.
+/// </summary>
 class AstarTile : public GameNode
 {
 private:

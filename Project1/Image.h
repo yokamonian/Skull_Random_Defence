@@ -1,5 +1,9 @@
 #pragma once
 #include "pch.h"
+
+/// <summary>
+/// Image : 각종 이미지 정보를 담는 클래스.
+/// </summary>
 class Image
 {
 public:

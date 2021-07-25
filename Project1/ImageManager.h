@@ -3,6 +3,9 @@
 #include "SingletonBase.h"
 
 class Image;
+/// <summary>
+/// ImageManager : 이미지 파일을 관리하기 위한 매니저 클래스
+/// </summary>
 class ImageManager : public SingletonBase<ImageManager>
 {
 private:

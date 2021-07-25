@@ -2,7 +2,11 @@
 #include "GameObject.h"
 #include "Storage.h"
 
-// 스컬 동작구분
+/// <summary>
+/// Skull : 게임 내 등장하는 아군 유닛(타워) 클래스.
+/// </summary>
+
+// 스컬 상태 정보
 enum class SKULLMode
 {
 	IDLE,

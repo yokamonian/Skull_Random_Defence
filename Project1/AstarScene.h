@@ -3,10 +3,12 @@
 #include "AstarTile.h"
 #include <vector>
 
-
-
-
 class AstarTile;
+/// <summary>
+/// AstarScene : Astar알고리즘 클래스.
+///				 게임 스테이지 타일 정보를 통해 목적지(Portal)까지 경로를 만들어주는 
+///				 알고리즘 기반 클래스.
+/// </summary>
 class AstarScene : public SingletonBase<AstarScene>
 {
 private:

@@ -3,6 +3,11 @@
 #include "pch.h"
 #include <utility>
 
+/// <summary>
+/// StageScene : 게임 시작 시 등장하는 게임 스테이지 클래스.
+/// </summary>
+
+
 // 아이콘
 typedef struct tagIcon
 {

@@ -2,7 +2,9 @@
 #include "SingletonBase.h"
 #include "pch.h"
 
-// 유닛 데이터 관리
+/// <summary>
+/// UnitDataBase : 게임 내 등장하는 모든 적군과 아군의 정보를 관리하는 클래스.
+/// </summary>
 class Image;
 class UnitDataBase : public SingletonBase <UnitDataBase>
 {

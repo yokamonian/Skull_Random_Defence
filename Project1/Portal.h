@@ -1,6 +1,9 @@
 #pragma once
 #include "GameObject.h"
 
+/// <summary>
+/// Portal : 게임 내 수성의 목적 오브젝트 클래스.
+/// </summary>
 class Portal : public GameObject
 {
 private:

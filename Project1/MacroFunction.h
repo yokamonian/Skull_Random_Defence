@@ -1,6 +1,9 @@
 #pragma once
 #include "pch.h"
 
+/// <summary>
+/// MacroFunction : 각종 수학적 함수들의 모임 클래스.
+/// </summary>
 inline RECT GetRectToCenter(int x, int y, int width, int height)
 {
 	RECT rc = { x - (width / 2), y - (height / 2),

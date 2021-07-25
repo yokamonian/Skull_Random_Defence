@@ -6,6 +6,9 @@
 using namespace std;
 
 class GameNode;
+/// <summary>
+/// SceneManager : 씬(scene)관리 매니저 클래스
+/// </summary>
 class SceneManager : public SingletonBase<SceneManager>
 {
 private:

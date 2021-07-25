@@ -4,6 +4,9 @@
 
 
 class Enemy;
+/// <summary>
+/// EnemyManager : Enemy(적)군에 대한 매니저 클래스.
+/// </summary>
 class EnemyManager : public GameNode
 {
 private:

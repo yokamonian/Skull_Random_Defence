@@ -1,6 +1,9 @@
 #pragma once
 #include "pch.h"
 
+/// <summary>
+/// GameNode : 게임의 모든 오브젝트 기반 클래스의 상위 클래스.
+/// </summary>
 class GameNode
 {
 protected:

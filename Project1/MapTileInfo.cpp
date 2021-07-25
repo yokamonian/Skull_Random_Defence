@@ -12,10 +12,6 @@ HRESULT MapTileInfo::Init()
 		tiles[i] = new ISOTILE[ISO_TILE_X];
 	}
 
-	//for (int i = 0; i < ISO_TILE_Y; i++)
-	//{
-	//	tiles[i] = new ISOTILE[ISO_TILE_X];
-	//}
 	for (int i = 0; i < ISO_TILE_Y; i++)
 	{
 		for (int j = 0; j < ISO_TILE_X; j++)

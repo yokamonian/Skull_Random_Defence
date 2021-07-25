@@ -1,7 +1,9 @@
 #pragma once
 #include "pch.h"
 
-
+/// <summary>
+/// 게임 내 프레임에 관련된 클래스.
+/// </summary>
 class Timer
 {
 private:

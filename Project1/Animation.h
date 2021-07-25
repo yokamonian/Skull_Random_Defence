@@ -1,6 +1,9 @@
 #pragma once
 #include "pch.h"
 
+/// <summary>
+/// Animation : 게임 내 애니메이션 프레임을 관리하는 클래스.
+/// </summary>
 class Animation
 {
 private:

@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/// <summary>
+/// 게임 내 오류를 검토하기 위해 로그창을 보기 위한 클래스.
+/// </summary>
 class Debug : public SingletonBase<Debug>
 {
 private:

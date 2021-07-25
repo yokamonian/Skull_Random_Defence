@@ -1,6 +1,10 @@
 #pragma once
 
-// 싱글톤
+/// <summary>
+/// SingletonBase : 게임 내 각종 매니저 클래스의 기반 싱글톤 클래스.
+///					싱글톤 패턴을 목적으로 만들어진 클래스.
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template<typename T>
 class SingletonBase
 {

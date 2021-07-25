@@ -7,8 +7,9 @@ using namespace std;
 
 #define KEY_MAX_COUNT	256	
 
-
-// 키 입력 관리 매니저
+/// <summary>
+/// KeyManager : 키 입력 관리 매니저 클래스
+/// </summary>
 class KeyManager : public SingletonBase<KeyManager>
 {
 private:

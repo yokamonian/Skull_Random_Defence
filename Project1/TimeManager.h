@@ -3,6 +3,9 @@
 #include "SingletonBase.h"
 
 class Timer;
+/// <summary>
+/// TimeManager : Time 클래스를 활용. 게임 내 각종 타이머 매니저 클래스.
+/// </summary>
 class TimeManager : public SingletonBase<TimeManager>
 {
 private:

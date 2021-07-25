@@ -3,7 +3,9 @@
 #include "pch.h"
 #include <utility>
 
-// 적 유닛의 상태
+/// <summary>
+/// Enemy : 적 유닛에 대한 클래스.
+/// </summary>
 enum class EnemyMode
 {
 	IDLE,

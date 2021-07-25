@@ -2,7 +2,10 @@
 #include "SingletonBase.h"
 #include "pch.h"
 
-
+/// <summary>
+/// StageUI : Card 클래스 매니저를 목적으로 만든 클래스이나 스테이지씬에 병합됨으로써 주석된 클래스.
+/// 현재까진 주석상태이나 게임 구조 변형의 여지를 고려하여 보류중.
+/// </summary>
 //typedef struct tagStorage
 //{
 //	POINT storagePos;

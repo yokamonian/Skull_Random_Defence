@@ -1,8 +1,9 @@
 #pragma once
 #include "GameNode.h"
 
-
-
+/// <summary>
+/// MainGame : WinAPI를 통해 게임 콘솔창을 만드는 클래스.
+/// </summary>
 class MainGame : public GameNode
 {
 private:
