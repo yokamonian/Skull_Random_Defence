@@ -19,8 +19,6 @@ void UnitDataBase::AddSkullInfo(int damage, int attackSpeed, int abilityPower, i
 	int growthAp, int upgradeDmg, int upgradeAs, int upgradeSc, int upgradeAp, 
 	int idleFrame, int attackFrame, int skillFrame, string skullName , int skullId)
 {
-	/*SkullData* skull = { damage, attackSpeed, abilityPower, skillCount, growthDmg, growthAp, upgradeDmg, upgradeAs,
-		upgradeSc, upgradeAp, idleFrame, attackFrame, skillFrame, skullName};*/
 	SkullData* skull = new SkullData();
 	skull->damage = damage;
 	skull->attackSpeed = attackSpeed;

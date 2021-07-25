@@ -18,6 +18,7 @@ HRESULT AstarTile::Init()
 HRESULT AstarTile::Init(int _idX, int _idY)
 {
 	parentTile = nullptr;
+	// 경로 표기 선 색상 지정
 	color = RGB(250, 100, 50);
 	brush = CreateSolidBrush(color);
 
@@ -26,6 +27,7 @@ HRESULT AstarTile::Init(int _idX, int _idY)
 	idX = _idX;
 	idY = _idY;
 
+	// 타일 초기화
 	for (int i = 0; i < ISO_TILE_Y; i++)
 	{
 		if (i == idY)
@@ -60,8 +62,6 @@ void AstarTile::Render(HDC hdc)
 
 	SelectObject(hdc, pen);
 	RenderRect(hdc, pos.x - (ISO_TILE_HALF_SIZE_X), pos.y - (ISO_TILE_HALF_SIZE_Y), ISO_TILE_SIZE_X);
-
-
 }
 
 AstarTile::AstarTile()

@@ -2,7 +2,7 @@
 #include "SingletonBase.h"
 #include "pch.h"
 
-
+// 유닛 데이터 관리
 class Image;
 class UnitDataBase : public SingletonBase <UnitDataBase>
 {

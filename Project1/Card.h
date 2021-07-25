@@ -2,6 +2,7 @@
 #include "GameNode.h"
 class Card : public GameNode
 {
+	// 카드 : 스컬 구매 목적
 private:
 	RECT card;
 	POINT pos;

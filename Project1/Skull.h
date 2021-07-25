@@ -39,13 +39,16 @@ private:
 	POINT fieldPos;				// 필드 위치
 public:
 	virtual HRESULT Init();
+	// 유닛 정보 세팅
 	void SetSkull(TILE_NUM_INFO buildPos, string* skullName);
 	void SetSkull(POINT pos, string* skullName);
+	// 유닛 위치 세팅 및 이동
 	void SetPrevPos(POINT _prevPos) { prevPos = _prevPos; }
 	void SetPos(POINT _pos) { pos = _pos; }
 	void SetPos(int posX, int posY) { pos.x = posX; pos.y = posY; }
 	void SetSelected(bool _isSelected) { isSelected = _isSelected; }
 	void SetFieldPos(POINT _pos) { fieldPos = _pos; }
+	// 유닛저장소 세팅
 	void SetStorage(Storage* _storage) 
 	{ 
 		if (_storage == nullptr && storage != nullptr) 
@@ -57,6 +60,7 @@ public:
 		storage->SetSkullTile(this);
 		storage->SetIsEmpty(false);
 	}
+
 	Storage* GetStorage() { return storage; }
 	POINT GetFieldPos() { return fieldPos; }
 	POINT GetPrevPos() { return prevPos; }

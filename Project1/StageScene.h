@@ -53,10 +53,10 @@ private:
 	bool isSpawn = false;			// 적 스폰 여부
 
 	// UI
-	Button cardLockB;
-	Button startB;
-	Button cardB;
-	Icon timer;
+	Button cardLockB;				// 카드 구매 잠금 버튼
+	Button startB;					// 시작 버튼
+	Button cardB;					// 카드 구매 버튼
+	Icon timer;						// 타이머 아이콘
 
 	// 시간 관련
 	float WaveTime;
@@ -70,6 +70,7 @@ private:
 	Image* img;
 	Image* effectImg;
 	POINT gatePos;
+
 	int currframeX;
 	int currframeY;
 	int elapsedSpawnTime = 0;
@@ -94,14 +95,14 @@ public:
 	virtual void Update();
 	virtual void Render(HDC hdc);
 	static StageScene* instance;
-	void ShuffleDist();
-	void Start();
-	void CheckPercase();
-	void PerchaseCard(Card* skullCard, Storage* storage);
-	void PerchaseShuffleCard(Card* shuffleCard);
+	void ShuffleDist();										// 카드 섞기
+	void Start();											// 시작
+	void CheckPercase();									// 구매 여부 확인
+	void PerchaseCard(Card* skullCard, Storage* storage);	// 카드 구매
+	void PerchaseShuffleCard(Card* shuffleCard);			// 섞기 버튼 구매
 	void SelectSkull();
-	void MoveSkull();
-	void SetUpSkull();
+	void MoveSkull();										// (필드에) 스컬 이동
+	void SetUpSkull();										// (필드에) 스컬 배치
 	void SetStorage();
 	void DrawPath(HDC hdc);
 	void ClickButton();
