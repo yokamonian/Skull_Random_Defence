@@ -52,7 +52,7 @@ void EnemyManager::Render(HDC hdc)
 	}
 }
 
-// A_Star °æ·Î ¼³Á¤
+// A_Star Â°Ã¦Â·Ã Â¼Â³ÃÂ¤
 void EnemyManager::SetAstarPath(list<pair<int, int>>* _astar)
 {
 	for (auto it = enemies.begin(), end = enemies.end(); it != end; it++)
