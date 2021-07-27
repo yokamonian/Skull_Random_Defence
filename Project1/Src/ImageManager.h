@@ -4,17 +4,17 @@
 
 class Image;
 /// <summary>
-/// ImageManager : ÀÌ¹ÌÁö ÆÄÀÏÀ» °ü¸®ÇÏ±â À§ÇÑ ¸Å´ÏÀú Å¬·¡½º
+/// ImageManager : ì´ë¯¸ì§€ íŒŒì¼ì„ ê´€ë¦¬í•˜ê¸° ìœ„í•œ ë§¤ë‹ˆì € í´ë˜ìŠ¤
 /// </summary>
 class ImageManager : public SingletonBase<ImageManager>
 {
 private:
 	map<string, Image*> mapImageDatas;
 public:
-	// ÃÊ±âÈ­ & ÇØÁ¦
+	// ì´ˆê¸°í™” & í•´ì œ
 	virtual HRESULT Init();
 	virtual void Release();
-	// ÀÌ¹ÌÁö Ãß°¡
+	// ì´ë¯¸ì§€ ì¶”ê°€
 	Image* AddImage(string strKey, int width, int height);
 	Image* AddImage(string strKey, const char* fileName, int width, int height,
 		bool trans = FALSE, COLORREF transColor = FALSE);
@@ -22,7 +22,7 @@ public:
 		float x, float y, int width, int height,
 		int keyFrameX, int keyFrameY,
 		bool trans, COLORREF transColor);
-	// ÀÌ¹ÌÁö Ã£±â
+	// ì´ë¯¸ì§€ ì°¾ê¸°
 	Image* FindImage(string strKey);
 
 	void DeleteImage(string strKey);
