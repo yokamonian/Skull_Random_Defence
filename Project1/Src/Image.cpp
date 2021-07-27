@@ -39,7 +39,7 @@ HRESULT Image::Init(int width, int height)
 		|| imageInfo->hBlendBitmap == NULL
 		|| imageInfo->hRotateBitmap == NULL)
 	{
-		// ¸Ş¸ğ¸® ÇØÁ¦
+		// ë©”ëª¨ë¦¬ í•´ì œ
 		Release();
 		return E_FAIL;
 	}
@@ -95,7 +95,7 @@ HRESULT Image::Init(const char* fileName, int width, int height, bool trans, COL
 		|| imageInfo->hBlendBitmap == NULL
 		|| imageInfo->hRotateBitmap == NULL)
 	{
-		// ¸Ş¸ğ¸® ÇØÁ¦
+		// ë©”ëª¨ë¦¬ í•´ì œ
 		Release();
 		return E_FAIL;
 	}
@@ -125,7 +125,7 @@ HRESULT Image::Init(const char* fileName,
 	imageInfo->width = width;
 	imageInfo->height = height;
 
-	// Ãß°¡
+	// ì¶”ê°€
 	imageInfo->x = x - (width / 2);
 	imageInfo->y = y - (height / 2);
 	imageInfo->currentKeyFrameX = 0;
@@ -158,7 +158,7 @@ HRESULT Image::Init(const char* fileName,
 		|| imageInfo->hBlendBitmap == NULL
 		|| imageInfo->hRotateBitmap == NULL)
 	{
-		// ¸Ş¸ğ¸® ÇØÁ¦
+		// ë©”ëª¨ë¦¬ í•´ì œ
 		Release();
 		return E_FAIL;
 	}
@@ -200,15 +200,15 @@ void Image::Render(HDC hdc, int destX, int destY)
 	}
 	else
 	{
-		// ¸Ş¸ğ¸®¿¡ ÀÖ´Â µ¥ÀÌÅÍ¸¦ È­¸é¿¡ °í¼Óº¹»çÇÑ´Ù.
-		BitBlt(hdc,				// º¹»ç ¸ñÀûÁö DC
+		// ë©”ëª¨ë¦¬ì— ìˆëŠ” ë°ì´í„°ë¥¼ í™”ë©´ì— ê³ ì†ë³µì‚¬í•œë‹¤.
+		BitBlt(hdc,				// ë³µì‚¬ ëª©ì ì§€ DC
 			destX,
-			destY, 		// º¹»ç ½ÃÀÛ À§Ä¡
-			imageInfo->width,	// ¿øº»¿¡¼­ º¹»çµÉ °¡·Î Å©±â
-			imageInfo->height,	// ¿øº»¿¡¼­ º¹»çµÉ ¼¼·Î Å©±â
-			imageInfo->hMemDC,	// ¿øº» DC
-			0, 0,				// ¿øº»¿¡¼­ º¹»ç ½ÃÀÛ À§Ä¡
-			SRCCOPY);			// º¹»ç ¿É¼Ç
+			destY, 		// ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			imageInfo->width,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ê°€ë¡œ í¬ê¸°
+			imageInfo->height,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ì„¸ë¡œ í¬ê¸°
+			imageInfo->hMemDC,	// ì›ë³¸ DC
+			0, 0,				// ì›ë³¸ì—ì„œ ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			SRCCOPY);			// ë³µì‚¬ ì˜µì…˜
 	}
 }
 
@@ -258,24 +258,24 @@ void Image::Render(HDC hdc, int destX, int destY, int sourceX, int sourceY)
 	}
 	else
 	{
-		// ¸Ş¸ğ¸®¿¡ ÀÖ´Â µ¥ÀÌÅÍ¸¦ È­¸é¿¡ °í¼Óº¹»çÇÑ´Ù.
-		BitBlt(hdc,				// º¹»ç ¸ñÀûÁö DC
+		// ë©”ëª¨ë¦¬ì— ìˆëŠ” ë°ì´í„°ë¥¼ í™”ë©´ì— ê³ ì†ë³µì‚¬í•œë‹¤.
+		BitBlt(hdc,				// ë³µì‚¬ ëª©ì ì§€ DC
 			destX,
-			destY, 		// º¹»ç ½ÃÀÛ À§Ä¡
-			imageInfo->width - sourceX,	// ¿øº»¿¡¼­ º¹»çµÉ °¡·Î Å©±â
-			imageInfo->height,	// ¿øº»¿¡¼­ º¹»çµÉ ¼¼·Î Å©±â
-			imageInfo->hMemDC,	// ¿øº» DC
-			sourceX, 0,				// ¿øº»¿¡¼­ º¹»ç ½ÃÀÛ À§Ä¡
-			SRCCOPY);			// º¹»ç ¿É¼Ç
+			destY, 		// ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			imageInfo->width - sourceX,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ê°€ë¡œ í¬ê¸°
+			imageInfo->height,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ì„¸ë¡œ í¬ê¸°
+			imageInfo->hMemDC,	// ì›ë³¸ DC
+			sourceX, 0,				// ì›ë³¸ì—ì„œ ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			SRCCOPY);			// ë³µì‚¬ ì˜µì…˜
 
-		BitBlt(hdc,				// º¹»ç ¸ñÀûÁö DC
+		BitBlt(hdc,				// ë³µì‚¬ ëª©ì ì§€ DC
 			imageInfo->width - sourceX,
-			destY, 		// º¹»ç ½ÃÀÛ À§Ä¡
-			sourceX,	// ¿øº»¿¡¼­ º¹»çµÉ °¡·Î Å©±â
-			imageInfo->height,	// ¿øº»¿¡¼­ º¹»çµÉ ¼¼·Î Å©±â
-			imageInfo->hMemDC,	// ¿øº» DC
-			0, 0,				// ¿øº»¿¡¼­ º¹»ç ½ÃÀÛ À§Ä¡
-			SRCCOPY);			// º¹»ç ¿É¼Ç
+			destY, 		// ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			sourceX,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ê°€ë¡œ í¬ê¸°
+			imageInfo->height,	// ì›ë³¸ì—ì„œ ë³µì‚¬ë  ì„¸ë¡œ í¬ê¸°
+			imageInfo->hMemDC,	// ì›ë³¸ DC
+			0, 0,				// ì›ë³¸ì—ì„œ ë³µì‚¬ ì‹œì‘ ìœ„ì¹˜
+			SRCCOPY);			// ë³µì‚¬ ì˜µì…˜
 
 	}
 }
@@ -299,7 +299,7 @@ void Image::BGRender(HDC hdc, int destX, int destY, int sourceX, int sourceY)
 
 void Image::FrameRender(HDC hdc, int destX, int destY, int currentKeyFrameX, int currentKeyFrameY, float scale)
 {
-	// ÇöÀç Å°ÇÁ·¹ÀÓ ÀÎµ¦½º°¡ ÃÖ´ë Å°ÇÁ·¹ÀÓ ÀÎµ¦½ºº¸´Ù Å¬ ¶§
+	// í˜„ì¬ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ê°€ ìµœëŒ€ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ë³´ë‹¤ í´ ë•Œ
 	imageInfo->currentKeyFrameX = currentKeyFrameX;
 	imageInfo->currentKeyFrameY = currentKeyFrameY;
 
@@ -345,9 +345,9 @@ void Image::FrameRender(HDC hdc, int destX, int destY, int currentKeyFrameX, int
 
 void Image::AlphaRender(HDC hdc, BYTE alpha, int destX, int destY, bool isTrans)
 {
-	// 1. Ãâ·ÂÇØ¾ß µÇ´Â DC¿¡ ±×·ÁÁ® ÀÖ´Â ³»¿ëÀ» blendDC¿¡ º¹»ç
-	// 2. Ãâ·ÂÇÒ ÀÌ¹ÌÁö¸¦ blendDC¿¡ ÁöÁ¤ÇÑ »ö»óÀ» Á¦¿ÜÇØ¼­ º¹»ç
-	// 3. blendDC¿¡ ³»¿ëÀ» ¸ñÀûÁö DC¿¡ º¹»ç
+	// 1. ì¶œë ¥í•´ì•¼ ë˜ëŠ” DCì— ê·¸ë ¤ì ¸ ìˆëŠ” ë‚´ìš©ì„ blendDCì— ë³µì‚¬
+	// 2. ì¶œë ¥í•  ì´ë¯¸ì§€ë¥¼ blendDCì— ì§€ì •í•œ ìƒ‰ìƒì„ ì œì™¸í•´ì„œ ë³µì‚¬
+	// 3. blendDCì— ë‚´ìš©ì„ ëª©ì ì§€ DCì— ë³µì‚¬
 	blendFunc.SourceConstantAlpha = alpha;
 
 	if (isTrans)
@@ -373,7 +373,7 @@ void Image::AlphaRender(HDC hdc, BYTE alpha, int destX, int destY, bool isTrans)
 void Image::AlphaFrameRender(HDC hdc, BYTE alpha, int destX, int destY, int currentKeyFrameX, int currentKeyFrameY, bool isTrans, float scale)
 {
 	blendFunc.SourceConstantAlpha = alpha;
-	// ÇöÀç Å°ÇÁ·¹ÀÓ ÀÎµ¦½º°¡ ÃÖ´ë Å°ÇÁ·¹ÀÓ ÀÎµ¦½ºº¸´Ù Å¬ ¶§
+	// í˜„ì¬ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ê°€ ìµœëŒ€ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ë³´ë‹¤ í´ ë•Œ
 	imageInfo->currentKeyFrameX = currentKeyFrameX;
 	imageInfo->currentKeyFrameY = currentKeyFrameY;
 
@@ -432,20 +432,20 @@ void Image::RotateRender(HDC hdc, double dblAngle,
 	POINT apt[3] = { 0 };
 	double dblWidth = (double)imageInfo->width * dblSizeRatio;
 	double dblHeight = (double)imageInfo->height * dblSizeRatio;
-	double ixRotate = (int)((double)(imageInfo->width / 2) * dblSizeRatio); // Å©±â°¡ º¯ÇÏ´Â °Í °í·Á
+	double ixRotate = (int)((double)(imageInfo->width / 2) * dblSizeRatio); // í¬ê¸°ê°€ ë³€í•˜ëŠ” ê²ƒ ê³ ë ¤
 	double iyRotate = (int)((double)(imageInfo->height / 2) * dblSizeRatio);
 	double dblRadian, dblx, dbly, dblxDest, dblyDest, cosVal, sinVal;
 	dblRadian = dblAngle * PI / 180.0f;
 	cosVal = cos(dblRadian), sinVal = sin(dblRadian);
 
-	// 1. È¸ÀüÃàÀ» ±âÁØÀ¸·Î »ó´ëÁÂÇ¥¸¦ ±¸ÇÏ°í
-	// 2. È¸ÀüÈÄ À§Ä¡ÁÂÇ¥(»ó´ëÁÂÇ¥)¸¦ ¾òÀº ÈÄ
-	// 3. ¾òÀº °ªÀ» ¿ø·¡ÀÇ ÁÂÇ¥¿¡ Àû¿ë.
+	// 1. íšŒì „ì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ ìƒëŒ€ì¢Œí‘œë¥¼ êµ¬í•˜ê³ 
+	// 2. íšŒì „í›„ ìœ„ì¹˜ì¢Œí‘œ(ìƒëŒ€ì¢Œí‘œ)ë¥¼ ì–»ì€ í›„
+	// 3. ì–»ì€ ê°’ì„ ì›ë˜ì˜ ì¢Œí‘œì— ì ìš©.
 	for (i = 0; i < 3; i++)
 	{
-		if (i == 0) { dblx = -ixRotate, dbly = -iyRotate; }    // left up  ²ÀÁöÁ¡ ºÎºĞ
-		else if (i == 1) { dblx = dblWidth - ixRotate, dbly = -iyRotate; }  // right up ²ÀÁöÁ¡ ºÎºĞ
-		else if (i == 2) { dblx = -ixRotate, dbly = dblHeight - iyRotate; } // left low ²ÀÁöÁ¡ ºÎºĞ
+		if (i == 0) { dblx = -ixRotate, dbly = -iyRotate; }    // left up  ê¼­ì§€ì  ë¶€ë¶„
+		else if (i == 1) { dblx = dblWidth - ixRotate, dbly = -iyRotate; }  // right up ê¼­ì§€ì  ë¶€ë¶„
+		else if (i == 2) { dblx = -ixRotate, dbly = dblHeight - iyRotate; } // left low ê¼­ì§€ì  ë¶€ë¶„
 		dblxDest = dblx * cosVal - dbly * sinVal;
 		dblyDest = dblx * sinVal + dbly * cosVal;
 		dblxDest += ixRotate, dblyDest += iyRotate;
@@ -459,18 +459,18 @@ void Image::RotateRender(HDC hdc, double dblAngle,
 
 void Image::RotateAlphaRender(HDC hdc, double dblAngle, int destX, int destY, BYTE alpha, double dblSizeRatio, HBITMAP hMaskBmp, int ixMask, int iyMask)
 {
-	// Åõ¸íµµ
+	// íˆ¬ëª…ë„
 	blendFunc.SourceConstantAlpha = alpha;
 
 	if (isTrans)
 	{
-		// 1. ¸ñÀûÁö DC¿¡ ±×·ÁÁ® ÀÖ´Â ³»¿ëÀ» blend DC¿¡ º¹»ç
+		// 1. ëª©ì ì§€ DCì— ê·¸ë ¤ì ¸ ìˆëŠ” ë‚´ìš©ì„ blend DCì— ë³µì‚¬
 		BitBlt(imageInfo->hBlendDC, 0, 0, imageInfo->blendMaxSize, imageInfo->blendMaxSize,
 			hdc,
 			destX - (imageInfo->blendMaxSize / 2),
 			destY - (imageInfo->blendMaxSize / 2), SRCCOPY);
 
-		// 2. ÀÌ¹ÌÁö¸¦ È¸Àü½ÃÄÑ¼­ Rotate DC¿¡ º¹»ç
+		// 2. ì´ë¯¸ì§€ë¥¼ íšŒì „ì‹œì¼œì„œ Rotate DCì— ë³µì‚¬
 		RECT rc = { 0, 0, imageInfo->rotateMaxSize, imageInfo->rotateMaxSize };
 		HBRUSH hBrush = CreateSolidBrush(transColor);
 		FillRect(imageInfo->hRotateDC, &rc, hBrush);
@@ -482,7 +482,7 @@ void Image::RotateAlphaRender(HDC hdc, double dblAngle, int destX, int destY, BY
 		//	imageInfo->rotateMaxSize / 2, imageInfo->rotateMaxSize / 2);
 
 
-		// 3. Rotate DC ÀÌ¹ÌÁö¸¦ blend DC¿¡ ÁöÁ¤ÇÑ »ö»óÀ» Á¦¿ÜÇØ¼­ º¹»ç
+		// 3. Rotate DC ì´ë¯¸ì§€ë¥¼ blend DCì— ì§€ì •í•œ ìƒ‰ìƒì„ ì œì™¸í•´ì„œ ë³µì‚¬
 		GdiTransparentBlt(imageInfo->hBlendDC,
 			0, 0,
 			imageInfo->blendMaxSize, imageInfo->blendMaxSize,
@@ -492,7 +492,7 @@ void Image::RotateAlphaRender(HDC hdc, double dblAngle, int destX, int destY, BY
 			imageInfo->blendMaxSize, imageInfo->blendMaxSize,
 			transColor);
 
-		// 4. blend DC¿¡ ³»¿ëÀ» ¸ñÀûÁö DC¿¡ º¹»ç
+		// 4. blend DCì— ë‚´ìš©ì„ ëª©ì ì§€ DCì— ë³µì‚¬
 		AlphaBlend(hdc,
 			destX - (imageInfo->blendMaxSize / 2),
 			destY - (imageInfo->blendMaxSize / 2),
@@ -513,7 +513,7 @@ void Image::RotateAlphaRender(HDC hdc, double dblAngle, int destX, int destY, BY
 
 void Image::RotateFrameRender(HDC hdc, double dblAngle, int currentKeyFrameX, int currentKeyFrameY, int destX, int destY, float scale, double dblSizeRatio, HBITMAP hMaskBmp, int ixMask, int iyMask)
 {
-	// ÇöÀç Å°ÇÁ·¹ÀÓ ÀÎµ¦½º°¡ ÃÖ´ë Å°ÇÁ·¹ÀÓ ÀÎµ¦½ºº¸´Ù Å¬ ¶§
+	// í˜„ì¬ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ê°€ ìµœëŒ€ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤ë³´ë‹¤ í´ ë•Œ
 	imageInfo->currentKeyFrameX = currentKeyFrameX;
 	imageInfo->currentKeyFrameY = currentKeyFrameY;
 
@@ -530,20 +530,20 @@ void Image::RotateFrameRender(HDC hdc, double dblAngle, int currentKeyFrameX, in
 	POINT apt[3] = { 0 };
 	double dblWidth = (double)imageInfo->keyFrameWidth * dblSizeRatio;
 	double dblHeight = (double)imageInfo->keyFrameHeight * dblSizeRatio;
-	double ixRotate = (int)((double)(imageInfo->keyFrameWidth / 2) * dblSizeRatio); // Å©±â°¡ º¯ÇÏ´Â °Í °í·Á
+	double ixRotate = (int)((double)(imageInfo->keyFrameWidth / 2) * dblSizeRatio); // í¬ê¸°ê°€ ë³€í•˜ëŠ” ê²ƒ ê³ ë ¤
 	double iyRotate = (int)((double)(imageInfo->keyFrameHeight / 2) * dblSizeRatio);
 	double dblRadian, dblx, dbly, dblxDest, dblyDest, cosVal, sinVal;
 	dblRadian = dblAngle * PI / 180.0f;
 	cosVal = cos(dblRadian), sinVal = sin(dblRadian);
 
-	// 1. È¸ÀüÃàÀ» ±âÁØÀ¸·Î »ó´ëÁÂÇ¥¸¦ ±¸ÇÏ°í
-	// 2. È¸ÀüÈÄ À§Ä¡ÁÂÇ¥(»ó´ëÁÂÇ¥)¸¦ ¾òÀº ÈÄ
-	// 3. ¾òÀº °ªÀ» ¿ø·¡ÀÇ ÁÂÇ¥¿¡ Àû¿ë.
+	// 1. íšŒì „ì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ ìƒëŒ€ì¢Œí‘œë¥¼ êµ¬í•˜ê³ 
+	// 2. íšŒì „í›„ ìœ„ì¹˜ì¢Œí‘œ(ìƒëŒ€ì¢Œí‘œ)ë¥¼ ì–»ì€ í›„
+	// 3. ì–»ì€ ê°’ì„ ì›ë˜ì˜ ì¢Œí‘œì— ì ìš©.
 	for (i = 0; i < 3; i++)
 	{
-		if (i == 0) { dblx = -ixRotate, dbly = -iyRotate; }    // left up  ²ÀÁöÁ¡ ºÎºĞ
-		else if (i == 1) { dblx = dblWidth - ixRotate, dbly = -iyRotate; }  // right up ²ÀÁöÁ¡ ºÎºĞ
-		else if (i == 2) { dblx = -ixRotate, dbly = dblHeight - iyRotate; } // left low ²ÀÁöÁ¡ ºÎºĞ
+		if (i == 0) { dblx = -ixRotate, dbly = -iyRotate; }    // left up  ê¼­ì§€ì  ë¶€ë¶„
+		else if (i == 1) { dblx = dblWidth - ixRotate, dbly = -iyRotate; }  // right up ê¼­ì§€ì  ë¶€ë¶„
+		else if (i == 2) { dblx = -ixRotate, dbly = dblHeight - iyRotate; } // left low ê¼­ì§€ì  ë¶€ë¶„
 		dblxDest = dblx * cosVal - dbly * sinVal;
 		dblyDest = dblx * sinVal + dbly * cosVal;
 		dblxDest += ixRotate, dblyDest += iyRotate;
@@ -562,13 +562,13 @@ void Image::RotateAlphaFrameRender(HDC hdc, int destX, int destY, double dblAngl
 
 	if (isTrans)
 	{
-		// 1. ¸ñÀûÁö DC¿¡ ±×·ÁÁ® ÀÖ´Â ³»¿ëÀ» blend DC¿¡ º¹»ç
+		// 1. ëª©ì ì§€ DCì— ê·¸ë ¤ì ¸ ìˆëŠ” ë‚´ìš©ì„ blend DCì— ë³µì‚¬
 		BitBlt(imageInfo->hBlendDC, 0, 0, imageInfo->blendMaxSize, imageInfo->blendMaxSize,
 			hdc,
 			destX - (imageInfo->blendMaxSize / 2),
 			destY - (imageInfo->blendMaxSize / 2), SRCCOPY);
 
-		// 2. ÀÌ¹ÌÁö¸¦ È¸Àü½ÃÄÑ¼­ Rotate DC¿¡ º¹»ç
+		// 2. ì´ë¯¸ì§€ë¥¼ íšŒì „ì‹œì¼œì„œ Rotate DCì— ë³µì‚¬
 		RECT rc = { 0, 0, imageInfo->rotateMaxSize, imageInfo->rotateMaxSize };
 		HBRUSH hBrush = CreateSolidBrush(transColor);
 		FillRect(imageInfo->hRotateDC, &rc, hBrush);
@@ -580,7 +580,7 @@ void Image::RotateAlphaFrameRender(HDC hdc, int destX, int destY, double dblAngl
 			imageInfo->rotateMaxSize / 2, imageInfo->rotateMaxSize / 2);
 
 
-		// 3. Rotate DC ÀÌ¹ÌÁö¸¦ blend DC¿¡ ÁöÁ¤ÇÑ »ö»óÀ» Á¦¿ÜÇØ¼­ º¹»ç
+		// 3. Rotate DC ì´ë¯¸ì§€ë¥¼ blend DCì— ì§€ì •í•œ ìƒ‰ìƒì„ ì œì™¸í•´ì„œ ë³µì‚¬
 		GdiTransparentBlt(imageInfo->hBlendDC,
 			0, 0,
 			imageInfo->blendMaxSize * scale, imageInfo->blendMaxSize * scale,
@@ -590,7 +590,7 @@ void Image::RotateAlphaFrameRender(HDC hdc, int destX, int destY, double dblAngl
 			imageInfo->blendMaxSize * scale, imageInfo->blendMaxSize * scale,
 			transColor);
 
-		// 4. blend DC¿¡ ³»¿ëÀ» ¸ñÀûÁö DC¿¡ º¹»ç
+		// 4. blend DCì— ë‚´ìš©ì„ ëª©ì ì§€ DCì— ë³µì‚¬
 		AlphaBlend(hdc,
 			destX - (imageInfo->blendMaxSize / 2),
 			destY - (imageInfo->blendMaxSize / 2),
