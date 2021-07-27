@@ -50,7 +50,7 @@ void Enemy::Render(HDC hdc)
 	}
 }
 
-// Àû À¯´Ö ¼¼ÆÃ
+// ì  ìœ ë‹› ì„¸íŒ…
 void Enemy::SetEnemy(POINT spawnPos, string* enemyName)
 {
 	EnemyData* enemy = UnitDataBase().GetSingleton()->GetEnemyInfo(*(enemyName));
@@ -78,7 +78,7 @@ float Enemy::GetTime(FPOINT startpos, FPOINT destpos)
 	return Time;
 }
 
-// µ¿ÀÛ ÇÁ·¹ÀÓ ÁöÁ¤
+// ë™ì‘ í”„ë ˆì„ ì§€ì •
 void Enemy::frameByMode()
 {
 	frame++;
@@ -136,18 +136,18 @@ void Enemy::frameByMode()
 		currFrameX++;
 	}
 }
-	// Àû ÀÌµ¿ °ü·Ã ¼³Á¤
+	// ì  ì´ë™ ê´€ë ¨ ì„¤ì •
 	void Enemy::MoveAstar()
 	{
-		// µµÂøÁö±îÁö ÀÌµ¿(ÀÌµ¿ ½ÃÀÛ Àü)
+		// ë„ì°©ì§€ê¹Œì§€ ì´ë™(ì´ë™ ì‹œì‘ ì „)
 		if (timeAmount >= 1.0f)
 		{
-			// ÀÌµ¿ °æ·Î°¡ ºñ¾îÀÖÁö ¾ÊÀº°æ¿ì
+			// ì´ë™ ê²½ë¡œê°€ ë¹„ì–´ìˆì§€ ì•Šì€ê²½ìš°
 			if (!destOrder.empty())
 			{
-				// µµÂø½Ã°£ ¸®¼Â
+				// ë„ì°©ì‹œê°„ ë¦¬ì…‹
 				TimeManager::GetSingleton()->ResetTestTime();
-				// ´ÙÀ½ µµÂø ÁöÁ¡ °»½Å
+				// ë‹¤ìŒ ë„ì°© ì§€ì  ê°±ì‹ 
 				destpos = { (float)destOrder.back().first, (float)destOrder.back().second };
 				destOrder.pop_back();
 				startpos = { (float)pos.x, (float)pos.y };
@@ -157,7 +157,7 @@ void Enemy::frameByMode()
 				timeAmount = TimeManager::GetSingleton()->GetTestTime() / time;
 			}
 		}
-		// µµÂøÁö±îÁö ÀÌµ¿(ÀÌµ¿ Áß)
+		// ë„ì°©ì§€ê¹Œì§€ ì´ë™(ì´ë™ ì¤‘)
 		else if (timeAmount < 1.0f)
 		{
 			timeAmount = TimeManager::GetSingleton()->GetTestTime() / time;
@@ -166,7 +166,7 @@ void Enemy::frameByMode()
 		}
 	}
 
-	// Àû À¯´Ö »óÅÂ ÆÇÁ¤
+	// ì  ìœ ë‹› ìƒíƒœ íŒì •
 	void Enemy::EnemyBehavior()
 	{
 		if (healthPoint > 0)
