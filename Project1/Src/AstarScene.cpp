@@ -4,16 +4,16 @@
 
 HRESULT AstarScene::Init()
 {
-	// ½ÃÀÛÁ¡
+	// ì‹œì‘ì 
 	startTile = new AstarTile();
 	startTile->Init(0, 0);
 	startTile->SetAttribute("start");
-	// µµÂøÁöÁ¡
+	// ë„ì°©ì§€ì 
 	endTile = new AstarTile();
 	endTile->Init(2, 5);
 	endTile->SetAttribute("end");
 
-	// ÃÊ±â¼¼ÆÃ
+	// ì´ˆê¸°ì„¸íŒ…
 	currTile = startTile;
 	routeNum = 0;
 	isFinish = false;
@@ -23,14 +23,14 @@ HRESULT AstarScene::Init()
 	{
 		for (int j = 0; j < ISO_TILE_X; j++)
 		{
-			// ½ÃÀÛ Å¸ÀÏÀÎÁö
+			// ì‹œì‘ íƒ€ì¼ì¸ì§€
 			if (j == startTile->GetIdX() && i == startTile->GetIdY())
 			{
 				vecTiles.push_back(startTile);
 				continue;
 			}
 
-			// µµÂø Å¸ÀÏÀÎÁö
+			// ë„ì°© íƒ€ì¼ì¸ì§€
 			if (j == endTile->GetIdX() && i == endTile->GetIdY())
 			{
 				vecTiles.push_back(endTile);
@@ -73,14 +73,14 @@ HRESULT AstarScene::Init(TILE_NUM_INFO start)
 	{
 		for (int j = 0; j < ISO_TILE_X; j++)
 		{
-			// ½ÃÀÛ Å¸ÀÏÀÎÁö
+			// ì‹œì‘ íƒ€ì¼ì¸ì§€
 			if (j == startTile->GetIdX() && i == startTile->GetIdY())
 			{
 				vecTiles.push_back(startTile);
 				continue;
 			}
 
-			// µµÂø Å¸ÀÏÀÎÁö
+			// ë„ì°© íƒ€ì¼ì¸ì§€
 			if (j == endTile->GetIdX() && i == endTile->GetIdY())
 			{
 				vecTiles.push_back(endTile);
@@ -140,7 +140,7 @@ void AstarScene::Release()
 
 void AstarScene::FindPath(AstarTile* currTile)
 {
-	// ÇöÀç Å¸ÀÏ¿¡¼­ ÀÌµ¿°¡´ÉÇÑ ¸ğµç Å¸ÀÏÀ» ¿ÀÇÂ¸®½ºÆ®¿¡ ³Ö´Â´Ù.
+	// í˜„ì¬ íƒ€ì¼ì—ì„œ ì´ë™ê°€ëŠ¥í•œ ëª¨ë“  íƒ€ì¼ì„ ì˜¤í”ˆë¦¬ìŠ¤íŠ¸ì— ë„£ëŠ”ë‹¤.
 	AddOpenList(currTile);
 
 	float minF = 99999;
@@ -148,13 +148,13 @@ void AstarScene::FindPath(AstarTile* currTile)
 	int F, G, H;
 	for (int i = 0; i < openList.size(); i++)
 	{
-		//µµÂøÁöÁ¡±îÁöÀÇ ¿¹»ó ºñ¿ë °è»ê
+		//ë„ì°©ì§€ì ê¹Œì§€ì˜ ì˜ˆìƒ ë¹„ìš© ê³„ì‚°
 		H = (abs(endTile->GetIdX() - openList[i]->GetIdX()) + abs(endTile->GetIdY() - openList[i]->GetIdY())) * 10;
 
 		openList[i]->SetCostToGoal(H);
 
-		// ½ÃÀÛ Å¸ÀÏºÎÅÍ ÇöÀç Å¸ÀÏ±îÁöÀÇ ºñ¿ë °è»ê
-		// ºÎ¸ğ Å¸ÀÏÀÇ G + Å¸ÀÏ ÇÏ³ªÀÇ ÀÌµ¿ ºñ¿ës
+		// ì‹œì‘ íƒ€ì¼ë¶€í„° í˜„ì¬ íƒ€ì¼ê¹Œì§€ì˜ ë¹„ìš© ê³„ì‚°
+		// ë¶€ëª¨ íƒ€ì¼ì˜ G + íƒ€ì¼ í•˜ë‚˜ì˜ ì´ë™ ë¹„ìš©s
 		AstarTile* parent = openList[i]->GetParentTile();
 		if (parent)
 		{
@@ -173,7 +173,7 @@ void AstarScene::FindPath(AstarTile* currTile)
 		F = G + H;
 		openList[i]->SetTotalCost(F);
 
-		// °¡Àå ºñ¿ëÀÌ Àû°Ô µå´Â Å¸ÀÏÀ» ¼±ÅÃÇÑ´Ù.
+		// ê°€ì¥ ë¹„ìš©ì´ ì ê²Œ ë“œëŠ” íƒ€ì¼ì„ ì„ íƒí•œë‹¤.
 		if (minF > F)
 		{
 			minF = F;
@@ -181,7 +181,7 @@ void AstarScene::FindPath(AstarTile* currTile)
 		}
 	}
 
-	// °¡Àå ÀûÀº ºñ¿ëÀÌ µå´Â Å¸ÀÏÀÌ µµÂøÁöÁ¡ÀÏ °æ¿ì
+	// ê°€ì¥ ì ì€ ë¹„ìš©ì´ ë“œëŠ” íƒ€ì¼ì´ ë„ì°©ì§€ì ì¼ ê²½ìš°
 	if (minTile->GetAttribute() == "end")
 	{
 		AstarTile* curr = minTile;
@@ -200,10 +200,10 @@ void AstarScene::FindPath(AstarTile* currTile)
 		return;
 	}
 
-	// Áö³ª¿Â Å¸ÀÏÀ» Å¬·ÎÁî¸®½ºÆ®¿¡ Ãß°¡ÇÑ´Ù.
+	// ì§€ë‚˜ì˜¨ íƒ€ì¼ì„ í´ë¡œì¦ˆë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•œë‹¤.
 	closeList.push_back(minTile);
 
-	// ¿ÀÇÂ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÑ´Ù.
+	// ì˜¤í”ˆë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•œë‹¤.
 	for (vector<AstarTile*>::iterator it = openList.begin(); it != openList.end(); it++)
 	{
 		if ((*it) == minTile)
@@ -213,7 +213,7 @@ void AstarScene::FindPath(AstarTile* currTile)
 		}
 	}
 
-	// Á¦ÀÏ °¡±î¿î Å¸ÀÏÀ» ±âÁØÀ¸·Î ¾Ë°í¸®ÁòÀ» ¹İº¹ÇÑ´Ù.
+	// ì œì¼ ê°€ê¹Œìš´ íƒ€ì¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì•Œê³ ë¦¬ì¦˜ì„ ë°˜ë³µí•œë‹¤.
 	currTile = minTile;
 
 	FindPath(currTile);
@@ -244,7 +244,7 @@ list<pair<int, int>>* AstarScene::StartAstar(TILE_NUM_INFO start)
 void AstarScene::AddOpenList(AstarTile * currentTile)
 {
 
-	// ÇöÀç Å¸ÀÏ ÁÖÀ§ÀÇ ¸ğµç Å¸ÀÏÀ» È®ÀÎÇÑ´Ù.
+	// í˜„ì¬ íƒ€ì¼ ì£¼ìœ„ì˜ ëª¨ë“  íƒ€ì¼ì„ í™•ì¸í•œë‹¤.
 	int startX = currentTile->GetIdX();
 	int startY = currentTile->GetIdY() - 1;
 	int sideX, sideY;
@@ -267,7 +267,7 @@ void AstarScene::AddOpenList(AstarTile * currentTile)
 			}
 			sideY = startY + i;
 
-			// Å¸ÀÏ¸Ê ¿µ¿ªÀ» ¹ş¾î³µÀ» ¶§
+			// íƒ€ì¼ë§µ ì˜ì—­ì„ ë²—ì–´ë‚¬ì„ ë•Œ
 			if (sideX < 0 || sideX >= ISO_TILE_X ||
 				sideY < 0 || sideY >= ISO_TILE_Y)
 			{
@@ -276,9 +276,9 @@ void AstarScene::AddOpenList(AstarTile * currentTile)
 
 			AstarTile* tile = vecTiles[sideY * ISO_TILE_X + sideX];
 
-			// ¿ÀÇÂ ¸®½ºÆ®¿¡ ³ÖÁö ¾Ê´Â °æ¿ì
+			// ì˜¤í”ˆ ë¦¬ìŠ¤íŠ¸ì— ë„£ì§€ ì•ŠëŠ” ê²½ìš°
 			/*
-				start, wall, openList,ÀÌ¹Ì closeList¿¡ µé¾îÀÖ´Â °æ¿ì
+				start, wall, openList,ì´ë¯¸ closeListì— ë“¤ì–´ìˆëŠ” ê²½ìš°
 			*/
 
 			if (tile->GetAttribute() == "start" ||
@@ -287,7 +287,7 @@ void AstarScene::AddOpenList(AstarTile * currentTile)
 
 
 
-			// ÀÌ¹Ì ¿ÀÇÂ¸®½ºÆ®¿¡ ÀÖÀ» ¶§ ¿¹¿ÜÃ³¸®
+			// ì´ë¯¸ ì˜¤í”ˆë¦¬ìŠ¤íŠ¸ì— ìˆì„ ë•Œ ì˜ˆì™¸ì²˜ë¦¬
 			bool isExist = false;
 			for (vector<AstarTile*>::iterator it = openList.begin(); it != openList.end(); it++)
 			{
@@ -300,7 +300,7 @@ void AstarScene::AddOpenList(AstarTile * currentTile)
 
 			if (isExist) continue;
 
-			// Å¬·ÎÁî¸®½ºÆ®¿¡ ÀÖÀ» ¶§ ¿¹¿ÜÃ³¸®
+			// í´ë¡œì¦ˆë¦¬ìŠ¤íŠ¸ì— ìˆì„ ë•Œ ì˜ˆì™¸ì²˜ë¦¬
 			isExist = false;
 			for (vector<AstarTile*>::iterator it = closeList.begin(); it != closeList.end(); it++)
 			{
