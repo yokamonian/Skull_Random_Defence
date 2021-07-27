@@ -24,9 +24,9 @@ HRESULT MainGame::Init()
 
 
 	inGameScene = new StageScene();
-	SceneManager::GetSingleton()->AddScene("ÀÎ°ÔÀÓ", inGameScene);
+	SceneManager::GetSingleton()->AddScene("ì¸ê²Œì„", inGameScene);
 
-	SceneManager::GetSingleton()->ChangeScene("ÀÎ°ÔÀÓ");
+	SceneManager::GetSingleton()->ChangeScene("ì¸ê²Œì„");
 	
 	
 
@@ -62,7 +62,7 @@ void MainGame::Update()
 {
 
 	SceneManager::GetSingleton()->Update();
-	InvalidateRect(g_hWnd, NULL, false); //backbuffer¿¡ ³Ö¾îÁØ ÈÄ¿¡´Â false·Î ¸¸µé¾îÁÖ±â
+	InvalidateRect(g_hWnd, NULL, false); //backbufferì— ë„£ì–´ì¤€ í›„ì—ëŠ” falseë¡œ ë§Œë“¤ì–´ì£¼ê¸°
 }
 
 void MainGame::Render()
