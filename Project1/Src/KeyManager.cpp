@@ -2,7 +2,7 @@
 
 HRESULT KeyManager::Init()
 {
-	// ÃÊ±âÈ­
+	// ì´ˆê¸°í™”
 	for (int i = 0; i < KEY_MAX_COUNT; i++)
 	{
 		SetKeyDown(i, false);
@@ -16,19 +16,19 @@ void KeyManager::Release()
 {
 }
 
-// Å°¸¦ ÇÑ¹ø ´­·¶À» ¶§
+// í‚¤ë¥¼ í•œë²ˆ ëˆŒë €ì„ ë•Œ
 bool KeyManager::IsOnceKeyDown(int key)
 {
 	// GetAsyncKeyState(VK_...)	
 	/*
-		1. 0x0000 => ÀÌÀü ÇÁ·¹ÀÓ¿¡ ´©¸¥ ÀûÀÌ ¾ø°í È£Ãâ½ÃÁ¡¿¡µµ ´­·ÁÀÖÁö ¾ÊÀ½
-		2. 0x0001 => ÀÌÀü ÇÁ·¹ÀÓ¿¡ ´©¸¥ ÀûÀÌ ÀÖ°í È£Ãâ½ÃÁ¡¿¡´Â ´­·ÁÀÖÁö ¾ÊÀ½
-		3. 0x8000 => ÀÌÀü ÇÁ·¹ÀÓ¿¡ ´©¸¥ ÀûÀÌ ¾ø°í È£Ãâ½ÃÁ¡¿¡´Â ´­·ÁÀÖ´Â »óÅÂ
-		4. 0x8001 => ÀÌÀü ÇÁ·¹ÀÓ¿¡ ´©¸¥ ÀûÀÌ ÀÖ°í È£Ãâ½ÃÁ¡¿¡µµ ´­·ÁÀÖ´Â »óÅÂ
+		1. 0x0000 => ì´ì „ í”„ë ˆì„ì— ëˆ„ë¥¸ ì ì´ ì—†ê³  í˜¸ì¶œì‹œì ì—ë„ ëˆŒë ¤ìˆì§€ ì•ŠìŒ
+		2. 0x0001 => ì´ì „ í”„ë ˆì„ì— ëˆ„ë¥¸ ì ì´ ìˆê³  í˜¸ì¶œì‹œì ì—ëŠ” ëˆŒë ¤ìˆì§€ ì•ŠìŒ
+		3. 0x8000 => ì´ì „ í”„ë ˆì„ì— ëˆ„ë¥¸ ì ì´ ì—†ê³  í˜¸ì¶œì‹œì ì—ëŠ” ëˆŒë ¤ìˆëŠ” ìƒíƒœ
+		4. 0x8001 => ì´ì „ í”„ë ˆì„ì— ëˆ„ë¥¸ ì ì´ ìˆê³  í˜¸ì¶œì‹œì ì—ë„ ëˆŒë ¤ìˆëŠ” ìƒíƒœ
 	*/
 	if (GetAsyncKeyState(key) & 0x8000)
 	{
-		// ´©¸¥ ÆÇÁ¤ÀÌ ¾ø´Ù¸é
+		// ëˆ„ë¥¸ íŒì •ì´ ì—†ë‹¤ë©´
 		if (!this->GetKeyDown()[key])
 		{
 			this->SetKeyDown(key, true);
@@ -43,7 +43,7 @@ bool KeyManager::IsOnceKeyDown(int key)
 	return false;
 }
 
-// Å°¸¦ ´­·¶´Ù ¶ÃÀ» ¶§
+// í‚¤ë¥¼ ëˆŒë €ë‹¤ ë—ì„ ë•Œ
 bool KeyManager::IsOnceKeyUp(int key)
 {
 	if (GetAsyncKeyState(key) & 0x8000)
@@ -62,7 +62,7 @@ bool KeyManager::IsOnceKeyUp(int key)
 	return false;
 }
 
-// Å°¸¦ ´©¸£°í ÀÖÀ» ¶§
+// í‚¤ë¥¼ ëˆ„ë¥´ê³  ìˆì„ ë•Œ
 bool KeyManager::IsStayKeyDown(int key)
 {
 	if (GetAsyncKeyState(key) & 0x8000)
