@@ -2,7 +2,7 @@
 #include "GameNode.h"
 
 /// <summary>
-/// MainGame : WinAPI¸¦ ÅëÇØ °ÔÀÓ ÄÜ¼ÖÃ¢À» ¸¸µå´Â Å¬·¡½º.
+/// MainGame : WinAPIë¥¼ í†µí•´ ê²Œì„ ì½˜ì†”ì°½ì„ ë§Œë“œëŠ” í´ë˜ìŠ¤.
 /// </summary>
 class MainGame : public GameNode
 {
