@@ -4,8 +4,8 @@ class Card : public GameNode
 {
 	
 	/// <summary>
-	/// Card : °ÔÀÓ ³» ½ºÄÃÀ» ±¸¸ÅÇÏ±â À§ÇÑ UI Áß ÇÏ³ªÀÇ Å¬·¡½º.
-	///			ÀÎ°ÔÀÓ ÀçÈ­ÀÎ °ñµå¸¦ ÅëÇØ ±¸¸ÅÇÏ°Å³ª ¼¯´Â µîÀÇ ÇÔ¼ö°¡ ´ã°ÜÀÖ´Ù.
+	/// Card : ê²Œìž„ ë‚´ ìŠ¤ì»¬ì„ êµ¬ë§¤í•˜ê¸° ìœ„í•œ UI ì¤‘ í•˜ë‚˜ì˜ í´ëž˜ìŠ¤.
+	///			ì¸ê²Œìž„ ìž¬í™”ì¸ ê³¨ë“œë¥¼ í†µí•´ êµ¬ë§¤í•˜ê±°ë‚˜ ì„žëŠ” ë“±ì˜ í•¨ìˆ˜ê°€ ë‹´ê²¨ìžˆë‹¤.
 	/// </summary>
 private:
 	RECT card;
