@@ -8,7 +8,7 @@ using namespace std;
 #define KEY_MAX_COUNT	256	
 
 /// <summary>
-/// KeyManager : Å° ÀÔ·Â °ü¸® ¸Å´ÏÀú Å¬·¡½º
+/// KeyManager : í‚¤ ì…ë ¥ ê´€ë¦¬ ë§¤ë‹ˆì € í´ë˜ìŠ¤
 /// </summary>
 class KeyManager : public SingletonBase<KeyManager>
 {
@@ -20,11 +20,11 @@ public:
 	HRESULT Init();
 	void Release();
 
-	bool IsOnceKeyDown(int key);	// Å°¸¦ ÇÑ¹ø ´­·¶À» ¶§
-	bool IsOnceKeyUp(int key);		// Å°¸¦ ´­·¶´Ù ¶ÃÀ» ¶§
-	bool IsStayKeyDown(int key);	// Å°¸¦ ´©¸£°í ÀÖÀ» ¶§
+	bool IsOnceKeyDown(int key);	// í‚¤ë¥¼ í•œë²ˆ ëˆŒë €ì„ ë•Œ
+	bool IsOnceKeyUp(int key);		// í‚¤ë¥¼ ëˆŒë €ë‹¤ ë—ì„ ë•Œ
+	bool IsStayKeyDown(int key);	// í‚¤ë¥¼ ëˆ„ë¥´ê³  ìˆì„ ë•Œ
 
-	// ÆÇÁ¤
+	// íŒì •
 	bitset<KEY_MAX_COUNT> GetKeyUp() { return keyUp; }
 	bitset<KEY_MAX_COUNT> GetKeyDown() { return keyDown; }
 
