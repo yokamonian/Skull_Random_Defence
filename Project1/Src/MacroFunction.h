@@ -2,7 +2,7 @@
 #include "pch.h"
 
 /// <summary>
-/// MacroFunction : °¢Á¾ ¼öÇĞÀû ÇÔ¼öµéÀÇ ¸ğÀÓ Å¬·¡½º.
+/// MacroFunction : ê°ì¢… ìˆ˜í•™ì  í•¨ìˆ˜ë“¤ì˜ ëª¨ì„ í´ë˜ìŠ¤.
 /// </summary>
 inline RECT GetRectToCenter(int x, int y, int width, int height)
 {
