@@ -18,7 +18,7 @@ HRESULT AstarTile::Init()
 HRESULT AstarTile::Init(int _idX, int _idY)
 {
 	parentTile = nullptr;
-	// °æ·Î Ç¥±â ¼± »ö»ó ÁöÁ¤
+	// ê²½ë¡œ í‘œê¸° ì„  ìƒ‰ìƒ ì§€ì •
 	color = RGB(250, 100, 50);
 	brush = CreateSolidBrush(color);
 
@@ -27,7 +27,7 @@ HRESULT AstarTile::Init(int _idX, int _idY)
 	idX = _idX;
 	idY = _idY;
 
-	// Å¸ÀÏ ÃÊ±âÈ­
+	// íƒ€ì¼ ì´ˆê¸°í™”
 	for (int i = 0; i < ISO_TILE_Y; i++)
 	{
 		if (i == idY)
