@@ -4,8 +4,8 @@
 
 class Skull;
 /// <summary>
-/// AstarTile : MapTileInfoÀÇ Å¸ÀÏ Á¤º¸¸¦ ±â¹İÀ¸·Î Astar¾Ë°í¸®Áò ½ÇÇàÀ» À§ÇÑ Å¸ÀÏ °¢°³ Á¤º¸¸¦ ´ã´Â Å¬·¡½º.
-///				´ÜÀÏ Å¸ÀÏ Á¤º¸¸¦ ´ã°í ÀÖ´Ù.
+/// AstarTile : MapTileInfoì˜ íƒ€ì¼ ì •ë³´ë¥¼ ê¸°ë°˜ìœ¼ë¡œ Astarì•Œê³ ë¦¬ì¦˜ ì‹¤í–‰ì„ ìœ„í•œ íƒ€ì¼ ê°ê°œ ì •ë³´ë¥¼ ë‹´ëŠ” í´ë˜ìŠ¤.
+///				ë‹¨ì¼ íƒ€ì¼ ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤.
 /// </summary>
 class AstarTile : public GameNode
 {
@@ -14,12 +14,12 @@ private:
 	RECT rc;
 
 	float totalCost;//F
-	float costFromStart;//G, ½ÃÀÛÁ¡¿¡¼­ ·ÃÀç ³ëµå±îÁöÀÇ ºñ¿ë 
-	float costToGoal;//HÇöÀç ³ëµå¿¡¼­ µµÂø ³ëµå±îÁöÀÇ ¿¹»ó °æ·Î ºñ¿ë
+	float costFromStart;//G, ì‹œì‘ì ì—ì„œ ë ¨ì¬ ë…¸ë“œê¹Œì§€ì˜ ë¹„ìš© 
+	float costToGoal;//Hí˜„ì¬ ë…¸ë“œì—ì„œ ë„ì°© ë…¸ë“œê¹Œì§€ì˜ ì˜ˆìƒ ê²½ë¡œ ë¹„ìš©
 	POINT pos;
 	AstarTile* parentTile;
 	
-	string attribute;// ¼Ó¼ºÀÇ Á¤º¸ 
+	string attribute;// ì†ì„±ì˜ ì •ë³´ 
 	COLORREF color;
 	HBRUSH	brush;
 	HPEN pen;
@@ -30,10 +30,10 @@ private:
 
 public:
 	virtual HRESULT Init();
-	HRESULT Init(int _idX, int _idY);// ¸â¹ö º¯¼ö ÃÊ±âÈ­, ¸Ş¸ğ¸® ÇÒ´ç
-	virtual void Release();		   // ¸Ş¸ğ¸® ÇØÁ¦
-	virtual void Update();		   // ÇÁ·¹ÀÓ ´ÜÀ§ °ÔÀÓ ·ÎÁ÷ ½ÇÇà (µ¥ÀÌÅÍ º¯°æ)
-	virtual void Render(HDC hdc);	// ÇÁ·¹ÀÓ ´ÜÀ§ Ãâ·Â (ÀÌ¹ÌÁö, ÅØ½ºÆ® µî)
+	HRESULT Init(int _idX, int _idY);// ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™”, ë©”ëª¨ë¦¬ í• ë‹¹
+	virtual void Release();		   // ë©”ëª¨ë¦¬ í•´ì œ
+	virtual void Update();		   // í”„ë ˆì„ ë‹¨ìœ„ ê²Œì„ ë¡œì§ ì‹¤í–‰ (ë°ì´í„° ë³€ê²½)
+	virtual void Render(HDC hdc);	// í”„ë ˆì„ ë‹¨ìœ„ ì¶œë ¥ (ì´ë¯¸ì§€, í…ìŠ¤íŠ¸ ë“±)
 
 	void SetTotalCost(float cost) { totalCost = cost; }
 	void SetCostFromStart(float cost) { costFromStart = cost; }
