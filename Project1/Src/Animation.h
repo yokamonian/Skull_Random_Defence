@@ -19,16 +19,16 @@ Animation::~Animation()
 
 HRESULT Animation::Init(int totalWidth, int totalHeight, int frameWidth, int frameHeight)
 {
-	// °¡·Î ÇÁ·¹ÀÓ ¼ö
+	// ê°€ë¡œ í”„ë ˆì„ ìˆ˜
 	int frameWidthCount = totalWidth / frameWidth;
 
-	// ¼¼·Î ÇÁ·¹ÀÓ ¼ö 
+	// ì„¸ë¡œ í”„ë ˆì„ ìˆ˜ 
 	int frameHeightCount = totalHeight / frameHeight;
 
-	// ÀüÃ¼ ÇÁ·¹ÀÓ ¼ö
+	// ì „ì²´ í”„ë ˆì„ ìˆ˜
 	frameCount = frameWidthCount * frameHeightCount;
 
-	// ÇÁ·¹ÀÓ À§Ä¡ ¸®½ºÆ® ¼ÂÆÃ
+	// í”„ë ˆì„ ìœ„ì¹˜ ë¦¬ìŠ¤íŠ¸ ì…‹íŒ…
 	vecFrameList.clear();
 	vecFrameList.resize(frameCount);
 
@@ -46,7 +46,7 @@ HRESULT Animation::Init(int totalWidth, int totalHeight, int frameWidth, int fra
 	}
 
 
-	// ±âº» ÇÃ·¹ÀÌ ¸®½ºÆ® ¼ÂÆÃ
+	// ê¸°ë³¸ í”Œë ˆì´ ë¦¬ìŠ¤íŠ¸ ì…‹íŒ…
 	SetPlayFrame();
 
 
@@ -61,13 +61,13 @@ void Animation::SetPlayFrame(bool isReverse, bool isLoop)
 
 	if (isReverse)
 	{
-		//Á¤¹æÇâ
+		//ì •ë°©í–¥
 		for (int i = 0; i < frameCount; i++)
 		{
 			vecPlayList.push_back(i);
 		}
 
-		//¿ª¹æÇâ
+		//ì—­ë°©í–¥
 		for (int i = frameCount-1; i > 0; i--)
 		{
 			vecPlayList.push_back(i);
@@ -75,7 +75,7 @@ void Animation::SetPlayFrame(bool isReverse, bool isLoop)
 	}
 	else
 	{
-		//Á¤¹æÇâ
+		//ì •ë°©í–¥
 		for (int i = 0; i < frameCount; i++)
 		{
 			vecPlayList.push_back(i); 
@@ -91,7 +91,7 @@ void Animation::SetPlayFrame(int startFrame, int endFrame, bool isReverse, bool 
 
 	vecPlayList.clear();
 
-	// startFrameÀÌ 0º¸´Ù Å©°Å³ª °°°í endFrameÀÌ ¸¶Áö¸· frameº¸´Ù ÀÛ°Å³ª °°À» ¶§
+	// startFrameì´ 0ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ê³  endFrameì´ ë§ˆì§€ë§‰ frameë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì„ ë•Œ
 
 	if (startFrame == endFrame)
 	{
@@ -142,13 +142,13 @@ void Animation::SetPlayFrame(int startFrame, int endFrame, bool isReverse, bool 
 	{
 		if (isReverse)
 		{
-			//Á¤¹æÇâ
+			//ì •ë°©í–¥
 			for (int i = startFrame; i < endFrame + 1; i++)
 			{
 				vecPlayList.push_back(i);
 			}
 
-			//¿ª¹æÇâ
+			//ì—­ë°©í–¥
 			for (int i = endFrame - 1; i > startFrame; i--)
 			{
 				vecPlayList.push_back(i);
@@ -156,7 +156,7 @@ void Animation::SetPlayFrame(int startFrame, int endFrame, bool isReverse, bool 
 		}
 		else
 		{
-			//Á¤¹æÇâ
+			//ì •ë°©í–¥
 			for (int i = startFrame; i < endFrame + 1; i++)
 			{
 				vecPlayList.push_back(i);
@@ -204,7 +204,7 @@ void Animation::UpdateKeyFrame(float dt)
 
 			if (nowPlayIdx >= vecPlayList.size())
 			{
-				// ·çÇÁÀÏ ¶§
+				// ë£¨í”„ì¼ ë•Œ
 				if (isLoop)
 				{
 					nowPlayIdx = 0;
@@ -217,7 +217,7 @@ void Animation::UpdateKeyFrame(float dt)
 			}
 
 			accumulateTime -= keyFrameUpdateTime;
-			/*accumulateTime = 0.0f;*/ //À§°¡ ´õ Á¤È®ÇÏ´Ù
+			/*accumulateTime = 0.0f;*/ //ìœ„ê°€ ë” ì •í™•í•˜ë‹¤
 		}
 	}
 
