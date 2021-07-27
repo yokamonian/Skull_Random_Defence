@@ -2,12 +2,12 @@
 #include "pch.h"
 
 /// <summary>
-/// Image : °¢Á¾ ÀÌ¹ÌÁö Á¤º¸¸¦ ´ã´Â Å¬·¡½º.
+/// Image : ê°ì¢… ì´ë¯¸ì§€ ì •ë³´ë¥¼ ë‹´ëŠ” í´ë˜ìŠ¤.
 /// </summary>
 class Image
 {
 public:
-	// ÀÌ¹ÌÁö Á¤º¸ Å¸ÀÔ
+	// ì´ë¯¸ì§€ ì •ë³´ íƒ€ì…
 	enum IMAGE_LOAD_KIND
 	{
 		RESOURCE,
@@ -18,31 +18,31 @@ public:
 
 	typedef struct tagImageInfo
 	{
-		DWORD	resID;		// ¸®¼Ò½ºÀÇ °íÀ¯ÇÑ ¾ÆÀÌµğ
-		HDC		hMemDC;		// ±×¸®±â¸¦ ÁÖ°üÇÏ´Â ÇÚµé(¸Ş¸ğ¸® °ü¸®)
-		HBITMAP	hBitmap;	// ÀÌ¹ÌÁö Á¤º¸
-		HBITMAP hOldBit;	// ±âÁ¸ ÀÌ¹ÌÁö Á¤º¸
-		int		width;		// ÀÌ¹ÌÁö °¡·Î Å©±â
-		int		height;		// ÀÌ¹ÌÁö ¼¼·Î Å©±â
-		BYTE	loadType;	// ·Îµå Å¸ÀÔ
+		DWORD	resID;		// ë¦¬ì†ŒìŠ¤ì˜ ê³ ìœ í•œ ì•„ì´ë””
+		HDC		hMemDC;		// ê·¸ë¦¬ê¸°ë¥¼ ì£¼ê´€í•˜ëŠ” í•¸ë“¤(ë©”ëª¨ë¦¬ ê´€ë¦¬)
+		HBITMAP	hBitmap;	// ì´ë¯¸ì§€ ì •ë³´
+		HBITMAP hOldBit;	// ê¸°ì¡´ ì´ë¯¸ì§€ ì •ë³´
+		int		width;		// ì´ë¯¸ì§€ ê°€ë¡œ í¬ê¸°
+		int		height;		// ì´ë¯¸ì§€ ì„¸ë¡œ í¬ê¸°
+		BYTE	loadType;	// ë¡œë“œ íƒ€ì…
 
-		HDC		hBlendDC;		// ±×¸®±â¸¦ ÁÖ°üÇÏ´Â ÇÚµé(¸Ş¸ğ¸® °ü¸®)
-		HBITMAP	hBlendBitmap;	// ÀÌ¹ÌÁö Á¤º¸
-		HBITMAP hBlendOldBit;	// ±âÁ¸ ÀÌ¹ÌÁö Á¤º¸
+		HDC		hBlendDC;		// ê·¸ë¦¬ê¸°ë¥¼ ì£¼ê´€í•˜ëŠ” í•¸ë“¤(ë©”ëª¨ë¦¬ ê´€ë¦¬)
+		HBITMAP	hBlendBitmap;	// ì´ë¯¸ì§€ ì •ë³´
+		HBITMAP hBlendOldBit;	// ê¸°ì¡´ ì´ë¯¸ì§€ ì •ë³´
 		int		blendMaxSize;
 
-		HDC		hRotateDC;		// ±×¸®±â¸¦ ÁÖ°üÇÏ´Â ÇÚµé(¸Ş¸ğ¸® °ü¸®)
-		HBITMAP	hRotateBitmap;	// ÀÌ¹ÌÁö Á¤º¸
-		HBITMAP hRotateOldBit;	// ±âÁ¸ ÀÌ¹ÌÁö Á¤º¸
+		HDC		hRotateDC;		// ê·¸ë¦¬ê¸°ë¥¼ ì£¼ê´€í•˜ëŠ” í•¸ë“¤(ë©”ëª¨ë¦¬ ê´€ë¦¬)
+		HBITMAP	hRotateBitmap;	// ì´ë¯¸ì§€ ì •ë³´
+		HBITMAP hRotateOldBit;	// ê¸°ì¡´ ì´ë¯¸ì§€ ì •ë³´
 		int		rotateMaxSize;
 
-		float	x;					// Ãâ·Â À§Ä¡ ÁÂÇ¥
-		float	y;					// Ãâ·Â À§Ä¡ ÁÂÇ¥
-		int		currentKeyFrameX;	// ÇöÀç Å°ÇÁ·¹ÀÓ ÀÎµ¦½º
+		float	x;					// ì¶œë ¥ ìœ„ì¹˜ ì¢Œí‘œ
+		float	y;					// ì¶œë ¥ ìœ„ì¹˜ ì¢Œí‘œ
+		int		currentKeyFrameX;	// í˜„ì¬ í‚¤í”„ë ˆì„ ì¸ë±ìŠ¤
 		int		currentKeyFrameY;
-		int		maxKeyFrameX;		// ÃÖ´ë Å°ÇÁ·¹ÀÓ ¼ö
+		int		maxKeyFrameX;		// ìµœëŒ€ í‚¤í”„ë ˆì„ ìˆ˜
 		int		maxKeyFrameY;
-		int		keyFrameWidth;		// Å°ÇÁ·¹ÀÓ ´ç Å©±â
+		int		keyFrameWidth;		// í‚¤í”„ë ˆì„ ë‹¹ í¬ê¸°
 		int		keyFrameHeight;
 
 		tagImageInfo()
@@ -67,10 +67,10 @@ public:
 	} IMAGE_INFO, * LPIMAGE_INFO;
 
 private:
-	IMAGE_INFO* imageInfo;			// ÀÌ¹ÌÁöÁ¤º¸ ±¸Á¶Ã¼ Æ÷ÀÎÅÍ
-	char* fileName;			// ÆÄÀÏ°æ·Î + ÀÌ¸§
-	bool		isTrans;			// Åõ¸íÈ­ ¿©ºÎ
-	COLORREF	transColor;			// Åõ¸íÈ­ÇÒ »ö
+	IMAGE_INFO* imageInfo;			// ì´ë¯¸ì§€ì •ë³´ êµ¬ì¡°ì²´ í¬ì¸í„°
+	char* fileName;			// íŒŒì¼ê²½ë¡œ + ì´ë¦„
+	bool		isTrans;			// íˆ¬ëª…í™” ì—¬ë¶€
+	COLORREF	transColor;			// íˆ¬ëª…í™”í•  ìƒ‰
 	BLENDFUNCTION	blendFunc;
 	RECT		rt;
 	double		dblAngle;
@@ -83,18 +83,18 @@ private:
 	int			ixMask;
 	int			iyMask;
 public:
-	// ºó ºñÆ®¸Ê ÀÌ¹ÌÁö¸¦ ¸¸µç´Ù.
+	// ë¹ˆ ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ë¥¼ ë§Œë“ ë‹¤.
 	HRESULT Init(int width, int height);
 
-	// ¸®¼Ò½º·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ÀĞ¾î¼­ ¸¸µç´Ù.
+	// ë¦¬ì†ŒìŠ¤ë¡œë¶€í„° ë°ì´í„°ë¥¼ ì½ì–´ì„œ ë§Œë“ ë‹¤.
 	HRESULT Init(const DWORD resID, int width, int height,
 		bool trans = FALSE, COLORREF transColor = FALSE);
 
-	// ÆÄÀÏ·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ÀĞ¾î¼­ ¸¸µç´Ù.
+	// íŒŒì¼ë¡œë¶€í„° ë°ì´í„°ë¥¼ ì½ì–´ì„œ ë§Œë“ ë‹¤.
 	HRESULT Init(const char* fileName, int width, int height,
 		bool trans = FALSE, COLORREF transColor = FALSE);
 
-	// ÀÌ¹ÌÁö + Å°ÇÁ·¹ÀÓ ÃÊ±âÈ­
+	// ì´ë¯¸ì§€ + í‚¤í”„ë ˆì„ ì´ˆê¸°í™”
 	HRESULT Init(const char* fileName, float x, float y,
 		int width, int height,
 		int keyFrameX, int keyFrameY,
@@ -112,14 +112,14 @@ public:
 	void FrameRender(HDC hdc, int destX, int destY,
 		int currentKeyFrameX, int currentKeyFrameY, float scale = 1.0f);
 
-	//¾ËÆÄ ·£´õ
+	//ì•ŒíŒŒ ëœë”
 	void AlphaRender(HDC hdc, BYTE alpha, int destX, int destY, bool isTrans);
 	void AlphaFrameRender(HDC hdc, BYTE alpha, int destX, int destY,
 		int currentKeyFrameX, int currentKeyFrameY, bool isTrans, float scale = 1.0f);
 	void RotateRender(HDC hdc, double dblAngle,
 		int destX, int destY, double dblSizeRatio = 1,
 		HBITMAP hMaskBmp = NULL, int ixMask = 0, int iyMask = 0);
-	// È¸Àü & ¾ËÆÄ
+	// íšŒì „ & ì•ŒíŒŒ
 	void RotateAlphaRender(HDC hdc, double dblAngle,
 		int destX, int destY, BYTE alpha = 255, double dblSizeRatio = 1,
 		HBITMAP hMaskBmp = NULL, int ixMask = 0, int iyMask = 0);
