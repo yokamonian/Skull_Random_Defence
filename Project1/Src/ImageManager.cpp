@@ -15,11 +15,11 @@ void ImageManager::Release()
 
 Image* ImageManager::AddImage(string strKey, int width, int height)
 {
-	// ÀÌ¹ÌÁö °Ë»ö(±âÁ¸ÀÇ ÀÌ¹ÌÁö°¡ Á¸ÀçÇÏ´Â °æ¿ì) ÈÄ ¹İÈ¯
+	// ì´ë¯¸ì§€ ê²€ìƒ‰(ê¸°ì¡´ì˜ ì´ë¯¸ì§€ê°€ ì¡´ì¬í•˜ëŠ” ê²½ìš°) í›„ ë°˜í™˜
 	Image* image = FindImage(strKey);
 	if (image) return image;
 
-	// ÀÌ¹ÌÁö Ãß°¡
+	// ì´ë¯¸ì§€ ì¶”ê°€
 	image = new Image();
 	if (FAILED(image->Init(width, height)))
 	{
@@ -28,7 +28,7 @@ Image* ImageManager::AddImage(string strKey, int width, int height)
 
 		return nullptr;
 	}
-	// ÀÌ¹ÌÁö + Å°¿öµå ÀúÀå
+	// ì´ë¯¸ì§€ + í‚¤ì›Œë“œ ì €ì¥
 	mapImageDatas.insert(make_pair(strKey, image));
 
 	return image;
@@ -88,10 +88,10 @@ void ImageManager::DeleteImage(string strKey)
 	map<string, Image*>::iterator iter = mapImageDatas.find(strKey);
 	if (iter != mapImageDatas.end())
 	{
-		// second(value)¸¦ ¸Ş¸ğ¸® ÇØÁ¦
+		// second(value)ë¥¼ ë©”ëª¨ë¦¬ í•´ì œ
 		(iter->second)->Release();
 		SAFE_DELETE((iter->second));
-		// key, value (pair) ¸¦ ¸Ş¸ğ¸® ÇØÁ¦
+		// key, value (pair) ë¥¼ ë©”ëª¨ë¦¬ í•´ì œ
 		mapImageDatas.erase(iter);
 	}
 }
@@ -103,12 +103,12 @@ void ImageManager::DeleteAll()
 	{
 		if (iter->second != nullptr)
 		{
-			// second(value)¸¦ ¸Ş¸ğ¸® ÇØÁ¦
+			// second(value)ë¥¼ ë©”ëª¨ë¦¬ í•´ì œ
 			(iter->second)->Release();
 			SAFE_DELETE((iter->second));
-			// key, value (pair) ¸¦ ¸Ş¸ğ¸® ÇØÁ¦
+			// key, value (pair) ë¥¼ ë©”ëª¨ë¦¬ í•´ì œ
 			iter = mapImageDatas.erase(iter);
-			// Áö±İ »èÁ¦ÇÏ´Â ¿ä¼ÒÀÇ ´ÙÀ½ ¿ä¼Ò¸¦ ÀÚµ¿À¸·Î ¹İÈ¯
+			// ì§€ê¸ˆ ì‚­ì œí•˜ëŠ” ìš”ì†Œì˜ ë‹¤ìŒ ìš”ì†Œë¥¼ ìë™ìœ¼ë¡œ ë°˜í™˜
 		}
 		else
 		{
@@ -116,7 +116,7 @@ void ImageManager::DeleteAll()
 		}
 	}
 
-	// ¸ÊÀ» ¸Ş¸ğ¸® ÇØÁ¦
+	// ë§µì„ ë©”ëª¨ë¦¬ í•´ì œ
 	mapImageDatas.clear();
 }
 
