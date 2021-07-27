@@ -5,14 +5,14 @@
 
 class Enemy;
 /// <summary>
-/// EnemyManager : Enemy(Àû)±º¿¡ ´ëÇÑ ¸Å´ÏÀú Å¬·¡½º.
+/// EnemyManager : Enemy(ì )êµ°ì— ëŒ€í•œ ë§¤ë‹ˆì € í´ë˜ìŠ¤.
 /// </summary>
 class EnemyManager : public GameNode
 {
 private:
-	ISOTILE** tiles;			// Àû À§Ä¡ Å¸ÀÏ
-	vector<Enemy*> enemies;		// Àû À¯´Ö ÁıÇÕ
-	Enemy* enemy;				// Àû À¯´Ö
+	ISOTILE** tiles;			// ì  ìœ„ì¹˜ íƒ€ì¼
+	vector<Enemy*> enemies;		// ì  ìœ ë‹› ì§‘í•©
+	Enemy* enemy;				// ì  ìœ ë‹›
 	stack<Enemy*> stEnemies;
 	list<pair<int, int>>* astar;
 	TILE_NUM_INFO spawnPos;
