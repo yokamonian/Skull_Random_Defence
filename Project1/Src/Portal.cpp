@@ -4,8 +4,8 @@
 
 HRESULT Portal::Init()
 {
-	// ÃÊ±âÈ­
-	img = ImageManager::GetSingleton()->AddImage("Æ÷Å»", "Image/Æ÷Å».bmp", 0, 0, 720, 80, 9, 1, true, RGB(0, 0, 0));
+	// ì´ˆê¸°í™”
+	img = ImageManager::GetSingleton()->AddImage("í¬íƒˆ", "Image/í¬íƒˆ.bmp", 0, 0, 720, 80, 9, 1, true, RGB(0, 0, 0));
 	hp = 10;
 	frame = 0;
 	currFrameX = currFrameY = 0;
@@ -18,7 +18,7 @@ void Portal::Release()
 
 void Portal::Update()
 {
-	// »óÅÂ¿¡ µû¸¥ ¾Ö´Ï¸ŞÀÌ¼Ç Ã³¸®
+	// ìƒíƒœì— ë”°ë¥¸ ì• ë‹ˆë©”ì´ì…˜ ì²˜ë¦¬
 	frame++;
 	if (frame % 5 == 4)
 	{ 
