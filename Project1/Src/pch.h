@@ -24,69 +24,69 @@ typedef struct tagFPOINT
 	float y;
 } FPOINT, *PFPOINT;
 
-// ¾Æ±º À¯´Ö µ¥ÀÌÅÍ º£ÀÌ½º
+// ì•„êµ° ìœ ë‹› ë°ì´í„° ë² ì´ìŠ¤
 typedef struct SkullData
 {
-	int damage;			// µ¥¹ÌÁö
-	int attackSpeed;	// °ø¼Ó
-	int abilityPower;	// ½ºÅ³ µ¥¹ÌÁö
-	int skillCount;		// ½ºÅ³¿¡ ÇÊ¿äÇÑ Å¸°İ¼ö
-	int growthDmg;		// ¼ºÀå µ¥¹ÌÁö(Å³)
-	int growthAp;		// ¼ºÀå ½ºÅ³ µ¥¹ÌÁö(Å³)
-	int upgradeDmg;		// ¼º±Ş¾÷ µ¥¹ÌÁö
-	int upgradeAs;		// ¼º±Ş¾÷ °ø¼Ó
-	int upgradeSc;		// ¼º±Ş¾÷ ½ºÅ³¿¡ ÇÊ¿äÇÑ Å¸°İ¼ö
-	int upgradeAp;		// ¼º±Ş¾÷ ½ºÅ³µ¥¹ÌÁö
-	int idleFrame;		// ±âº» µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int attackFrame;	// °ø°İ µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int skillFrame;		// ½ºÅ³ µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	string skullName;	// ½ºÄÃ ÀÌ¸§
-	string EffectName;	// ½ºÅ³ ÀÌÆåÆ® ÀÌ¸§
+	int damage;			// ë°ë¯¸ì§€
+	int attackSpeed;	// ê³µì†
+	int abilityPower;	// ìŠ¤í‚¬ ë°ë¯¸ì§€
+	int skillCount;		// ìŠ¤í‚¬ì— í•„ìš”í•œ íƒ€ê²©ìˆ˜
+	int growthDmg;		// ì„±ì¥ ë°ë¯¸ì§€(í‚¬)
+	int growthAp;		// ì„±ì¥ ìŠ¤í‚¬ ë°ë¯¸ì§€(í‚¬)
+	int upgradeDmg;		// ì„±ê¸‰ì—… ë°ë¯¸ì§€
+	int upgradeAs;		// ì„±ê¸‰ì—… ê³µì†
+	int upgradeSc;		// ì„±ê¸‰ì—… ìŠ¤í‚¬ì— í•„ìš”í•œ íƒ€ê²©ìˆ˜
+	int upgradeAp;		// ì„±ê¸‰ì—… ìŠ¤í‚¬ë°ë¯¸ì§€
+	int idleFrame;		// ê¸°ë³¸ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int attackFrame;	// ê³µê²© ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int skillFrame;		// ìŠ¤í‚¬ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	string skullName;	// ìŠ¤ì»¬ ì´ë¦„
+	string EffectName;	// ìŠ¤í‚¬ ì´í™íŠ¸ ì´ë¦„
 }SKULLDATA;
 
-// Àû±º À¯´Ö µ¥ÀÌÅÍ º£ÀÌ½º
+// ì êµ° ìœ ë‹› ë°ì´í„° ë² ì´ìŠ¤
 typedef struct EnemyData
 {
-	int damage;			// µ¥¹ÌÁö
-	int attackSpeed;	// °ø¼Ó
-	int moveSpeed;		// ÀÌ¼Ó
-	int healthPoint;	// Ã¼·Â
-	int idleFrame;		// ±âº» µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int attackFrame;	// °ø°İ µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int dieFrame;		// »ç¸Á µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	string enemyName;	// Àû ÀÌ¸§
-	string EffectName;	// Àû ½ºÅ³ ÀÌÆåÆ® ÀÌ¸§
-	int id;				// id°ª
+	int damage;			// ë°ë¯¸ì§€
+	int attackSpeed;	// ê³µì†
+	int moveSpeed;		// ì´ì†
+	int healthPoint;	// ì²´ë ¥
+	int idleFrame;		// ê¸°ë³¸ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int attackFrame;	// ê³µê²© ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int dieFrame;		// ì‚¬ë§ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	string enemyName;	// ì  ì´ë¦„
+	string EffectName;	// ì  ìŠ¤í‚¬ ì´í™íŠ¸ ì´ë¦„
+	int id;				// idê°’
 }ENEMYDATA;
 
 // enum, struct, .h, #define
 
-// ÄÜ¼Ö Ã¢ Å©±â
+// ì½˜ì†” ì°½ í¬ê¸°
 #define WINSIZE_X	440
 #define WINSIZE_Y	880
 #define WINSTART_X	50
 #define WINSTART_Y	50
 
-// Å¸ÀÏ °¡·Î ¼¼·Î °³¼ö
+// íƒ€ì¼ ê°€ë¡œ ì„¸ë¡œ ê°œìˆ˜
 #define ISO_TILE_X	5
 #define ISO_TILE_Y	15
 
-// Å¸ÀÏ °¡·Î ¼¼·Î Å©±â
+// íƒ€ì¼ ê°€ë¡œ ì„¸ë¡œ í¬ê¸°
 #define ISO_TILE_SIZE_X 84
 #define ISO_TILE_SIZE_Y 42
 #define ISO_TILE_HALF_SIZE_X (ISO_TILE_SIZE_X / 2)
 #define ISO_TILE_HALF_SIZE_Y (ISO_TILE_SIZE_Y / 2)
 
-// Å¸ÀÏ ½ÃÀÛ ÁÂÇ¥
+// íƒ€ì¼ ì‹œì‘ ì¢Œí‘œ
 #define ISO_START_X 12
 #define ISO_START_Y 227	
 
-// ÀÎº¥ ½ÃÀÛ ÁÂÇ¥
+// ì¸ë²¤ ì‹œì‘ ì¢Œí‘œ
 #define INVEN_START_Y 590
 #define INVEN_START_U 12
 #define INVEN_START_I 190
 
-// ½ºÄÃ(Å¸¿ö) ÀÌ¹ÌÁö Á¤º¸
+// ìŠ¤ì»¬(íƒ€ì›Œ) ì´ë¯¸ì§€ ì •ë³´
 typedef struct tagIsoTile
 {
 	int x, y;
@@ -96,14 +96,14 @@ typedef struct tagIsoTile
 	bool isEmpty = true;
 }ISOTILE;
 
-// Å¸ÀÏ ÁÂÇ¥
+// íƒ€ì¼ ì¢Œí‘œ
 typedef struct tileNumInfo
 {
 	int idX;
 	int idY;
 }TILE_NUM_INFO;
 
-// ÀÎº¥Åä¸® Á¤º¸
+// ì¸ë²¤í† ë¦¬ ì •ë³´
 typedef struct tagStorage
 {
 	POINT storagePos;
@@ -114,14 +114,14 @@ typedef struct tagStorage
 }STORAGE;
 
 
-// ÀÌ¹ÌÁö ·£´õ °ü·Ã
+// ì´ë¯¸ì§€ ëœë” ê´€ë ¨
 #define PI         3.141592
 #define SAFE_DELETE(p)		{ if (p) { delete p; p = NULL; }}
 #define SAFE_ARR_DELETE(p)	{ if (p) { delete [] p; p = NULL; }}
 #define DEGREE_TO_RADIAN(x)	( x * PI / 180 )
 #define RADIAN_TO_DEGREE(x) (int)( x * 180 / PI )
 
-// Àü¿ªº¯¼öÈ­
+// ì „ì—­ë³€ìˆ˜í™”
 extern HWND g_hWnd;
 extern HINSTANCE g_hInstance;
 extern POINT g_ptMouse;
