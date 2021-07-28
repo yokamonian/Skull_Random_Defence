@@ -3,7 +3,7 @@
 #include "pch.h"
 
 /// <summary>
-/// UnitDataBase : °ÔÀÓ ³» µîÀåÇÏ´Â ¸ğµç Àû±º°ú ¾Æ±ºÀÇ Á¤º¸¸¦ °ü¸®ÇÏ´Â Å¬·¡½º.
+/// UnitDataBase : ê²Œì„ ë‚´ ë“±ì¥í•˜ëŠ” ëª¨ë“  ì êµ°ê³¼ ì•„êµ°ì˜ ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤.
 /// </summary>
 class Image;
 class UnitDataBase : public SingletonBase <UnitDataBase>
