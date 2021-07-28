@@ -10,14 +10,14 @@ HRESULT Timer::Init()
 	FPSTimeElapsed = 0;
 	worldTime = 0;
 	
-	// QueryPerformanceFrequency = ÁÖÆÄ¼ö ÁÖ±â // QueryPerformanceCount = ´©ÀûÁÖÆÄ¼ö
+	// QueryPerformanceFrequency = ì£¼íŒŒìˆ˜ ì£¼ê¸° // QueryPerformanceCount = ëˆ„ì ì£¼íŒŒìˆ˜
 	if (QueryPerformanceFrequency((LARGE_INTEGER*)&periodFrequency))
 	{
 		isHardware = true;
 		QueryPerformanceCounter((LARGE_INTEGER*)&lastTime);
 		timeScale = 1.0f / periodFrequency;
 	}
-	// ÁÖÆÄ¼ö ÃøÁ¤ÀÌ ºÒ°¡´ÉÇÑ °æ¿ì
+	// ì£¼íŒŒìˆ˜ ì¸¡ì •ì´ ë¶ˆê°€ëŠ¥í•œ ê²½ìš°
 	else
 	{
 		isHardware = false;
@@ -39,7 +39,7 @@ void Timer::Tick(float lockFPS)
 	}
 	timeElapsed = (currTime - lastTime) * timeScale;
 
-	// ÇÁ·¹ÀÓ Á¦ÇÑ
+	// í”„ë ˆìž„ ì œí•œ
 	if (lockFPS > 0.0f)
 	{
 		while (timeElapsed < (1.0f / lockFPS))
@@ -56,14 +56,14 @@ void Timer::Tick(float lockFPS)
 		}
 	}
 
-	// ¿ùµåÅ¸ÀÓ °è»ê
+	// ì›”ë“œíƒ€ìž„ ê³„ì‚°
 	if(isGameStart)
 		worldTime += timeElapsed;
 
 	FPSFrameCount++;
 	FPSTimeElapsed += timeElapsed;
 
-	// ÃÊ´ç ÇÁ·¹ÀÓ °è»ê
+	// ì´ˆë‹¹ í”„ë ˆìž„ ê³„ì‚°
 	if (FPSTimeElapsed > 1.0f)
 	{
 		frameRate = FPSFrameCount;
