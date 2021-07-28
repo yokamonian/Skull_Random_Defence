@@ -19,11 +19,11 @@ HRESULT StageScene::Init()
 	sceneType = 1;
 
 	instance = this;
-	// ÃÊ±â °ñµå ¼¼ÆÃ
+	// ì´ˆê¸° ê³¨ë“œ ì„¸íŒ…
 	totalGold = 3000;
 	waveDeltaTime = 0;
 
-	// ÀúÀå¼Ò ¼¼ÆÃ
+	// ì €ì¥ì†Œ ì„¸íŒ…
 	storage = new Storage*[9];
 	for (int i = 0; i < 9; i++)
 	{
@@ -35,7 +35,7 @@ HRESULT StageScene::Init()
 		storage[i]->SetStorageRect(storage[i]->GetStoragePos().x, storage[i]->GetStoragePos().y, 55, 55);
 	}
 
-	// ±¸¸Å Ä«µå ¸ñ·Ï ¼¼ÆÃ
+	// êµ¬ë§¤ ì¹´ë“œ ëª©ë¡ ì„¸íŒ…
 	for (int i = 0; i < 4; i++)
 	{
 		int idx = rand() % 3;
@@ -48,7 +48,7 @@ HRESULT StageScene::Init()
 			skullCard[i]->ShuffleCard(3);
 	}
 
-	// ½ºÄÃ ¿ÀºêÁ§Æ® Ç®_½ºÅÃ¿¡ ÀúÀå
+	// ìŠ¤ì»¬ ì˜¤ë¸Œì íŠ¸ í’€_ìŠ¤íƒì— ì €ì¥
 	for (int i = 0; i < skullLimitCount; i++)
 	{
 		skull = new Skull();
@@ -56,25 +56,25 @@ HRESULT StageScene::Init()
 		stSkulls.push(skull);
 	}
 
-	// Å¸ÀÏ ¸Ê Á¤º¸ ¼¼ÆÃ
+	// íƒ€ì¼ ë§µ ì •ë³´ ì„¸íŒ…
 	MapTileInfo::GetSingleton()->Init();
 	tiles = MapTileInfo::GetSingleton()->GetTileMap();
 
-	// Å¸ÀÏ¸Ê x, y °ª ÃÊ±âÈ­
+	// íƒ€ì¼ë§µ x, y ê°’ ì´ˆê¸°í™”
 	ptSelected.x = 0;
 	ptSelected.y = 0;
 
-	// ÀÎ°ÔÀÓ ÀÌ¹ÌÁö ¼¼ÆÃ
-	inGameScreen = ImageManager::GetSingleton()->AddImage("ÀÎ°ÔÀÓ", "Image/½ºÄÃÅ¸¿ö2.bmp", WINSIZE_X, WINSIZE_Y, false, RGB(255, 255, 255));
-	enemyGate = ImageManager::GetSingleton()->AddImage("°ÔÀÌÆ®", "Image/Gate2.bmp", 0, 0, 240, 420, 2, 5, true, RGB(255, 255, 255));
+	// ì¸ê²Œì„ ì´ë¯¸ì§€ ì„¸íŒ…
+	inGameScreen = ImageManager::GetSingleton()->AddImage("ì¸ê²Œì„", "Image/ìŠ¤ì»¬íƒ€ì›Œ2.bmp", WINSIZE_X, WINSIZE_Y, false, RGB(255, 255, 255));
+	enemyGate = ImageManager::GetSingleton()->AddImage("ê²Œì´íŠ¸", "Image/Gate2.bmp", 0, 0, 240, 420, 2, 5, true, RGB(255, 255, 255));
 
-	// ÇÁ·¹ÀÓ ¼¼ÆÃ
+	// í”„ë ˆì„ ì„¸íŒ…
 	currframeX = 0;
 	currframeY = 4;
 	frame = 0;
 	isOpen = false;
 
-	// ±âº» Ãâ¹ßÁö ¼¼ÆÃ
+	// ê¸°ë³¸ ì¶œë°œì§€ ì„¸íŒ…
 	ShuffleDist();
 
 	wave = 0;
@@ -89,20 +89,20 @@ HRESULT StageScene::Init()
 	pen1 = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
 	pen = CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
 
-	// À¯´Ö ¼¼ÆÃ+ÃÊ±âÈ­ ¹× ¾Ë°í¸®Áò ÃÊ±âÈ­
+	// ìœ ë‹› ì„¸íŒ…+ì´ˆê¸°í™” ë° ì•Œê³ ë¦¬ì¦˜ ì´ˆê¸°í™”
 	UnitDataBase::GetSingleton()->Init();
 	AstarScene::GetSingleton()->Init();
 	astarPath = AstarScene::GetSingleton()->StartAstar(start);
 	if (astarPath != NULL)
 	{
-		img = ImageManager::GetSingleton()->AddImage("Áö´Ï", "Image/Áö´Ï.bmp", 0, 0, 2700, 600, 9, 3, true, RGB(255, 255, 255));
-		img = ImageManager::GetSingleton()->AddImage("¾àÅ»ÀÚ", "Image/¾àÅ»ÀÚ.bmp", 0, 0, 1540, 600, 7, 3, true, RGB(255, 255, 255));
-		img = ImageManager::GetSingleton()->AddImage("±×¸²¸®ÆÛ", "Image/±×¸²¸®ÆÛ.bmp", 0, 0, 2640, 600, 12, 3, true, RGB(255, 255, 255));
-		img = ImageManager::GetSingleton()->AddImage("Àû_¹ı»ç", "Image/¹ı»ç.bmp", 0, 0, 260, 320, 4, 4, true, RGB(255, 255, 255));
-		effectImg = ImageManager::GetSingleton()->AddImage("Àû_¹ı»ç_°ø°İÀÌÆåÆ®", "Image/Àû_¹ı»ç_ÀÌÆåÆ®.bmp", 0, 0, 318, 90, 6, 1, true, RGB(255, 255, 255));
+		img = ImageManager::GetSingleton()->AddImage("ì§€ë‹ˆ", "Image/ì§€ë‹ˆ.bmp", 0, 0, 2700, 600, 9, 3, true, RGB(255, 255, 255));
+		img = ImageManager::GetSingleton()->AddImage("ì•½íƒˆì", "Image/ì•½íƒˆì.bmp", 0, 0, 1540, 600, 7, 3, true, RGB(255, 255, 255));
+		img = ImageManager::GetSingleton()->AddImage("ê·¸ë¦¼ë¦¬í¼", "Image/ê·¸ë¦¼ë¦¬í¼.bmp", 0, 0, 2640, 600, 12, 3, true, RGB(255, 255, 255));
+		img = ImageManager::GetSingleton()->AddImage("ì _ë²•ì‚¬", "Image/ë²•ì‚¬.bmp", 0, 0, 260, 320, 4, 4, true, RGB(255, 255, 255));
+		effectImg = ImageManager::GetSingleton()->AddImage("ì _ë²•ì‚¬_ê³µê²©ì´í™íŠ¸", "Image/ì _ë²•ì‚¬_ì´í™íŠ¸.bmp", 0, 0, 318, 90, 6, 1, true, RGB(255, 255, 255));
 	}
 
-	// UI¹öÆ° ¼¼ÆÃ
+	// UIë²„íŠ¼ ì„¸íŒ…
 	startB.ButtIcon.iconPos = { 400, 630 };
 	cardLockB.ButtIcon.iconPos = { 400, 685 };
 	cardB.ButtIcon.iconPos = { 400, 740 };
@@ -111,16 +111,16 @@ HRESULT StageScene::Init()
 	cardLockB.ButtRect = GetRectToCenter(cardLockB.ButtIcon.iconPos.x, cardLockB.ButtIcon.iconPos.y, 54, 54);
 	cardB.ButtRect = GetRectToCenter(cardB.ButtIcon.iconPos.x, cardB.ButtIcon.iconPos.y, 54, 54);
 
-	startB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("½ÃÀÛ", "Image/½ÃÀÛ.bmp", 0, 0, 48, 105, 1, 2, true, RGB(255, 255, 255));
-	cardLockB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("Àá±İ", "Image/¶ô.bmp", 0, 0, 38, 105, 1, 2, true, RGB(255, 255, 255));
-	cardB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("¼û±â±â", "Image/¼û±â±â.bmp", 0, 0, 48, 105, 1, 2, true, RGB(255, 255, 255));
+	startB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("ì‹œì‘", "Image/ì‹œì‘.bmp", 0, 0, 48, 105, 1, 2, true, RGB(255, 255, 255));
+	cardLockB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("ì ê¸ˆ", "Image/ë½.bmp", 0, 0, 38, 105, 1, 2, true, RGB(255, 255, 255));
+	cardB.ButtIcon.iconImg = ImageManager::GetSingleton()->AddImage("ìˆ¨ê¸°ê¸°", "Image/ìˆ¨ê¸°ê¸°.bmp", 0, 0, 48, 105, 1, 2, true, RGB(255, 255, 255));
 
 	startB.ButtIcon.currframe = 0;
 	cardLockB.ButtIcon.currframe = 0;
 	cardB.ButtIcon.currframe = 0;
 
 	timer.iconPos = { 45 , 120 };
-	timer.iconImg = ImageManager::GetSingleton()->AddImage("Å¸ÀÌ¸Ó", "Image/Å¸ÀÌ¸Ó.bmp", 0, 0, 350, 73, 5, 1, true, RGB(255, 255, 255));
+	timer.iconImg = ImageManager::GetSingleton()->AddImage("íƒ€ì´ë¨¸", "Image/íƒ€ì´ë¨¸.bmp", 0, 0, 350, 73, 5, 1, true, RGB(255, 255, 255));
 	timer.currframe = -1;
 
 	enemymgr = new EnemyManager();
@@ -164,27 +164,27 @@ void StageScene::Release()
 
 void StageScene::Update()
 {
-	// °ÔÀÓ ½ÃÀÛ È­¸é ½Ã
+	// ê²Œì„ ì‹œì‘ í™”ë©´ ì‹œ
 	if (isOpen)
 	{
-		// ³²Àº ½Ã°£ Ã¼Å© ¹× ¿şÀÌºê Ã³¸®
+		// ë‚¨ì€ ì‹œê°„ ì²´í¬ ë° ì›¨ì´ë¸Œ ì²˜ë¦¬
 		elapsedTime = TimeManager::GetSingleton()->GetWaveTime();
 
 		float limitTime = WaveTime - elapsedTime;
-		// ¿şÀÌºê ½ÃÀÛ
+		// ì›¨ì´ë¸Œ ì‹œì‘
 		if (limitTime == WaveTime)
 		{
 			TimeManager::GetSingleton()->SetIsWaveTime(true);
 			isWave = true;
 			currframeY = 0;
 		}
-		// ¿şÀÌºê ½ÃÀÛ Å¸ÀÌ¸Ó ±¸°£ Ã³¸®
+		// ì›¨ì´ë¸Œ ì‹œì‘ íƒ€ì´ë¨¸ êµ¬ê°„ ì²˜ë¦¬
 		else if (limitTime > 20 && limitTime <= 25)
 		{
 			timer.currframe = 25 - limitTime;
 			if (timer.currframe < 0) timer.currframe = 0;
 		}
-		// ¿şÀÌºê ¶ó¿îµå ½ÃÀÛ ¹× ½ºÆù Ã³¸®
+		// ì›¨ì´ë¸Œ ë¼ìš´ë“œ ì‹œì‘ ë° ìŠ¤í° ì²˜ë¦¬
 		else if (limitTime > 0 && limitTime <= 20)
 		{
 			if (limitTime > 19 && isSpawn == false)
@@ -204,14 +204,14 @@ void StageScene::Update()
 			}
 			
 		}
-		// ¿şÀÌºê ÁßÀÌ ¾Æ´Ò¶§ Æ÷Å» »óÅÂ
+		// ì›¨ì´ë¸Œ ì¤‘ì´ ì•„ë‹ë•Œ í¬íƒˆ ìƒíƒœ
 		if (!isWave)
 		{
 			currframeX = 0;
 			currframeY = 4;
 			isSpawn = false;
 		}
-		// ¿şÀÌºê ÁßÀÇ Æ÷Å» »óÅÂ ¾Ö´Ï¸ŞÀÌ¼Ç
+		// ì›¨ì´ë¸Œ ì¤‘ì˜ í¬íƒˆ ìƒíƒœ ì• ë‹ˆë©”ì´ì…˜
 		if (isWave)
 		{
 			frame++;
@@ -230,7 +230,7 @@ void StageScene::Update()
 		}
 	}
 
-	// ½ºÄÃ »óÅÂ ¾÷µ¥ÀÌÆ®
+	// ìŠ¤ì»¬ ìƒíƒœ ì—…ë°ì´íŠ¸
 	if (vecSkulls.size() > 0)
 	{
 		for (vector<Skull*>::iterator it = vecSkulls.begin(); it != vecSkulls.end(); it++)
@@ -239,7 +239,7 @@ void StageScene::Update()
 		}
 	}
 
-	// Ä«µå ±¸¸Å
+	// ì¹´ë“œ êµ¬ë§¤
 	if (KeyManager::GetSingleton()->IsOnceKeyDown(VK_LBUTTON))
 	{
 		ClickButton();
@@ -250,7 +250,7 @@ void StageScene::Update()
 		SelectSkull();
 	}
 
-	// µå·¡±× ½Ã À§Ä¡ °ª Á¶Á¤
+	// ë“œë˜ê·¸ ì‹œ ìœ„ì¹˜ ê°’ ì¡°ì •
 	if ((KeyManager::GetSingleton()->IsStayKeyDown(VK_LBUTTON)))
 	{
 		if (!isWave)
@@ -263,7 +263,7 @@ void StageScene::Update()
 
 	}
 
-	// ½ºÄÃ ¹èÄ¡
+	// ìŠ¤ì»¬ ë°°ì¹˜
 	if ((KeyManager::GetSingleton()->IsOnceKeyUp(VK_LBUTTON)))
 	{
 		if (!isWave)
@@ -291,10 +291,10 @@ void StageScene::Render(HDC hdc)
 	}
 	SelectObject(hdc, pen1);
 
-	// °æ·Î Ç¥½Ã ·£´õ
+	// ê²½ë¡œ í‘œì‹œ ëœë”
 	if (astarPath != NULL)
 		DrawPath(hdc);
-	// UI ¾ÆÀÌÄÜ ·£´õ
+	// UI ì•„ì´ì½˜ ëœë”
 	startB.ButtIcon.iconImg->FrameRender(hdc, startB.ButtIcon.iconPos.x, startB.ButtIcon.iconPos.y, 0, startB.ButtIcon.currframe);
 	cardLockB.ButtIcon.iconImg->FrameRender(hdc, cardLockB.ButtIcon.iconPos.x, cardLockB.ButtIcon.iconPos.y, 0, cardLockB.ButtIcon.currframe);
 	cardB.ButtIcon.iconImg->FrameRender(hdc, cardB.ButtIcon.iconPos.x, cardB.ButtIcon.iconPos.y, 0, cardB.ButtIcon.currframe);
@@ -398,26 +398,26 @@ void StageScene::Start()
 
 void StageScene::CheckPercase()
 {
-	// ±¸¸Å Ä«µå ¸ñ·Ï
+	// êµ¬ë§¤ ì¹´ë“œ ëª©ë¡
 	for (int i = 0; i < 4; i++)
 	{
-		// Ä«µå Áß ÇÏ³ª¿Í ¸¶¿ì½º Æ÷ÀÎÆ® °ªÀÌ °ãÄ¥¶§
+		// ì¹´ë“œ ì¤‘ í•˜ë‚˜ì™€ ë§ˆìš°ìŠ¤ í¬ì¸íŠ¸ ê°’ì´ ê²¹ì¹ ë•Œ
 		if (PtInRect(&(skullCard[i]->GetCardRect()), g_ptMouse))
 		{
-			// 3°³ÀÇ ÀúÀå¼Ò
+			// 3ê°œì˜ ì €ì¥ì†Œ
 			for (int j = 0; j < 9; j++)
 			{
-				// 0~2¹øÀÇ Ä«µåÀÏ °æ¿ì &&	ÀúÀå¼Ò¿¡ ºó°ø°£ÀÌ Á¸ÀçÇÒ¶§
+				// 0~2ë²ˆì˜ ì¹´ë“œì¼ ê²½ìš° &&	ì €ì¥ì†Œì— ë¹ˆê³µê°„ì´ ì¡´ì¬í• ë•Œ
 				if (i < 3 && storage[j]->GetIsEmpty())
 				{
-					// Ä«µåÀÇ °¡°İº¸´Ù ¸¹Àº ±İ¾×À» ¼ÒÁö ÁßÀÏ¶§
+					// ì¹´ë“œì˜ ê°€ê²©ë³´ë‹¤ ë§ì€ ê¸ˆì•¡ì„ ì†Œì§€ ì¤‘ì¼ë•Œ
 					if (skullCard[i]->GetPrice() <= totalGold && skullCard[i]->GetCurrFrameY() == 0)
 					{
 						PerchaseCard(skullCard[i], storage[j]);
 						break;
 					}
 				}
-				// ·£´ı ¼ÅÇÃ Ä«µåÀÏ °æ¿ì
+				// ëœë¤ ì…”í”Œ ì¹´ë“œì¼ ê²½ìš°
 				else if (i == 3 && skullCard[i]->GetPrice() <= totalGold)
 				{
 					PerchaseShuffleCard(skullCard[i]);
@@ -431,20 +431,20 @@ void StageScene::CheckPercase()
 
 void StageScene::PerchaseCard(Card* skullCard, Storage* storage)
 {
-	// Ä«µå°ª Â÷°¨
+	// ì¹´ë“œê°’ ì°¨ê°
 	totalGold -= skullCard->GetPrice();
-	// ±¸¸Å°ü·Ã ½ÇÇà¹®
+	// êµ¬ë§¤ê´€ë ¨ ì‹¤í–‰ë¬¸
 	skullCard->PerchaseCard();
-	// Å¸¿öÀÇ Á¤º¸ Àü´Ş
+	// íƒ€ì›Œì˜ ì •ë³´ ì „ë‹¬
 	string* skullName = UnitDataBase::GetSingleton()->GetSkullIdInfo(skullCard->GetSkullId());
-	// ¿ÀºêÁ§Æ® Ç® °úÁ¤
+	// ì˜¤ë¸Œì íŠ¸ í’€ ê³¼ì •
 	Skull* skull = stSkulls.top();
 	stSkulls.pop();
 	skull->SetSkull(storage->GetStoragePos(), skullName);
 	vecSkulls.push_back(skull);
-	// Å¸ÀÏ¿¡°Ô Å¸¿öÁ¤º¸ Àü´Ş
+	// íƒ€ì¼ì—ê²Œ íƒ€ì›Œì •ë³´ ì „ë‹¬
 	storage->SetSkullTile(skull);
-	// Å¸¿ö¿¡°Ô Å¸ÀÏÁ¤º¸ Àü´Ş
+	// íƒ€ì›Œì—ê²Œ íƒ€ì¼ì •ë³´ ì „ë‹¬
 	skull->SetStorage(storage);
 }
 
@@ -461,18 +461,18 @@ void StageScene::SelectSkull()
 	{
 		selectSkull = nullptr;
 
-		// ÀúÀå¼Ò °ø°£ 0~2¹ø Áß¿¡
+		// ì €ì¥ì†Œ ê³µê°„ 0~2ë²ˆ ì¤‘ì—
 		for (int i = 0; i < 9; i++)
 		{
-			// ÀúÀå¼Ò i°¡ ºñ¾îÀÖ°í, ±×°÷¿¡ ¸¶¿ì½º Æ÷ÀÎÆ® °ªÀÌ °ãÃÄÀÖÀ»¶§
+			// ì €ì¥ì†Œ iê°€ ë¹„ì–´ìˆê³ , ê·¸ê³³ì— ë§ˆìš°ìŠ¤ í¬ì¸íŠ¸ ê°’ì´ ê²¹ì³ìˆì„ë•Œ
 			if (PtInRect(&(storage[i]->GetStorageRect()), g_ptMouse))
 			{
 				for (vector<Skull*>::iterator it = vecSkulls.begin(); it != vecSkulls.end(); it++)
 				{
-					// ÀúÀå¼Ò i¿¡ À§Ä¡ÇÑ Å¸¿ö°¡ ÀÖÀ»¶§
+					// ì €ì¥ì†Œ iì— ìœ„ì¹˜í•œ íƒ€ì›Œê°€ ìˆì„ë•Œ
 					if (PtInRect(&(storage[i]->GetStorageRect()), (*it)->GetPos()))
 					{
-						// ÇØ´ç Å¸¿ö´Â ¼±ÅÃµÇ°í ÀÌÀü Æ÷ÀÎÆ®°ª¿¡ ÇöÀç Å¸ÀÏ À§Ä¡°¡ ÀúÀåµÈ´Ù.
+						// í•´ë‹¹ íƒ€ì›ŒëŠ” ì„ íƒë˜ê³  ì´ì „ í¬ì¸íŠ¸ê°’ì— í˜„ì¬ íƒ€ì¼ ìœ„ì¹˜ê°€ ì €ì¥ëœë‹¤.
 						isSelect = true;
 						(*it)->SetPrevPos((*it)->GetPos());
 						selectSkull = (*it);
@@ -485,7 +485,7 @@ void StageScene::SelectSkull()
 
 		if (selectSkull == nullptr)
 		{
-			// ¸ŞÀÎ Å¸ÀÏ
+			// ë©”ì¸ íƒ€ì¼
 			for (int i = 0; i < ISO_TILE_Y; i++)
 			{
 				endflag = -1;
@@ -497,20 +497,20 @@ void StageScene::SelectSkull()
 							continue;
 					}
 
-					// ¸ŞÀÎÅ¸ÀÏ Áß ÇÏ³ª¿¡ ¸¶¿ì½º Æ÷ÀÎÆ®°ªÀÌ °ãÄ¥°æ¿ì
+					// ë©”ì¸íƒ€ì¼ ì¤‘ í•˜ë‚˜ì— ë§ˆìš°ìŠ¤ í¬ì¸íŠ¸ê°’ì´ ê²¹ì¹ ê²½ìš°
 					if (PtInRect(&tiles[i][j].rc, g_ptMouse))
 					{
 						float xx = (float)abs(g_ptMouse.x - tiles[i][j].x) / ISO_TILE_HALF_SIZE_X;
 						float yy = (float)abs(g_ptMouse.y - tiles[i][j].y) / ISO_TILE_HALF_SIZE_Y;
-						// ¾ÆÀÌ¼Ò¸ŞÆ®¸¯ Å¸¿ö ¼±ÅÃ Á¶°Ç¹®
+						// ì•„ì´ì†Œë©”íŠ¸ë¦­ íƒ€ì›Œ ì„ íƒ ì¡°ê±´ë¬¸
 						if (xx + yy < 1)
 						{
 							for (vector<Skull*>::iterator it = vecSkulls.begin(); it != vecSkulls.end(); it++)
 							{
-								// ±× Å¸ÀÏ À§¿¡ ÀÖ´Â Å¸¿ö°¡ ÀÖÀ» °æ¿ì
+								// ê·¸ íƒ€ì¼ ìœ„ì— ìˆëŠ” íƒ€ì›Œê°€ ìˆì„ ê²½ìš°
 								if (PtInRect(&tiles[i][j].rc, (*it)->GetPos()))
 								{
-									// ÇØ´ç Å¸¿ö¸¦ ¼±ÅÃ»óÅÂ·Î ¹Ù²Ù°í, ÀÌÀü À§Ä¡°ª¿¡ ÇöÀç À§Ä¡°ªÀ» ÀúÀå
+									// í•´ë‹¹ íƒ€ì›Œë¥¼ ì„ íƒìƒíƒœë¡œ ë°”ê¾¸ê³ , ì´ì „ ìœ„ì¹˜ê°’ì— í˜„ì¬ ìœ„ì¹˜ê°’ì„ ì €ì¥
 									isSelect = true;
 									(*it)->SetPrevPos((*it)->GetPos());
 									selectSkull = (*it);
@@ -553,20 +553,20 @@ void StageScene::SetUpSkull()
 				{
 					float xx = (float)abs(g_ptMouse.x - tiles[k][j].x) / ISO_TILE_HALF_SIZE_X;
 					float yy = (float)abs(g_ptMouse.y - tiles[k][j].y) / ISO_TILE_HALF_SIZE_Y;
-					// ¾ÆÀÌ¼Ò¸ŞÆ®¸¯ Å¸¿ö ¼±ÅÃ Á¶°Ç¹®
+					// ì•„ì´ì†Œë©”íŠ¸ë¦­ íƒ€ì›Œ ì„ íƒ ì¡°ê±´ë¬¸
 					if (xx + yy < 1)
 					{
-						// Å¸¿ö À§Ä¡°ª ¼³Á¤
+						// íƒ€ì›Œ ìœ„ì¹˜ê°’ ì„¤ì •
 						POINT tilePos = { tiles[k][j].x, tiles[k][j].y - 21 };
 						selectSkull->SetPos(tilePos);
-						// ÇØ´ç Å¸ÀÏÀ§¿¡ ½ºÄÃÀÌ ¾ø´Â °æ¿ì
+						// í•´ë‹¹ íƒ€ì¼ìœ„ì— ìŠ¤ì»¬ì´ ì—†ëŠ” ê²½ìš°
 						if (tiles[k][j].skull == nullptr)
 						{
-							// ¸î¹øÂ° Å¸ÀÏÀÎÁö
+							// ëª‡ë²ˆì§¸ íƒ€ì¼ì¸ì§€
 							int idx = j + (5 * k);
 							tiles[k][j].skull = selectSkull;
 
-							////cout << "¸¶¿ì½ºÁÂÇ¥ : " << idx << endl;
+							////cout << "ë§ˆìš°ìŠ¤ì¢Œí‘œ : " << idx << endl;
 							if (selectSkull->GetSkullTile() != nullptr)
 							{
 								selectSkull->GetSkullTile()->skull = nullptr;
@@ -598,7 +598,7 @@ void StageScene::SetUpSkull()
 
 void StageScene::SetStorage()
 {
-	// ÀúÀå¼Ò À§Ä¡¿¡ ¼ÓÇØÀÖÁö ¾ÊÀ¸¸ç, ¸ŞÀÎÅ¸ÀÏµéÀÇ À§Ä¡¿¡ ¼ÓÇØÀÖÁö ¾ÊÀº°æ¿ì ÀÌÀü À§Ä¡°ªÀ¸·Î µÇµ¹¸°´Ù.
+	// ì €ì¥ì†Œ ìœ„ì¹˜ì— ì†í•´ìˆì§€ ì•Šìœ¼ë©°, ë©”ì¸íƒ€ì¼ë“¤ì˜ ìœ„ì¹˜ì— ì†í•´ìˆì§€ ì•Šì€ê²½ìš° ì´ì „ ìœ„ì¹˜ê°’ìœ¼ë¡œ ë˜ëŒë¦°ë‹¤.
 	for (int j = 0; j < 9; j++)
 	{
 		if (!(g_ptMouse.x >= storage[0]->GetStorageRect().left &&
@@ -614,7 +614,7 @@ void StageScene::SetStorage()
 			selectSkull->SetPos(selectSkull->GetPrevPos());
 			isSelect = false;
 		}
-		// ÀúÀå¼Ò¿Í °ãÄ¡´Â À§Ä¡ÀÇ Å¸¿ö°¡ ÀÖ´Â °æ¿ì
+		// ì €ì¥ì†Œì™€ ê²¹ì¹˜ëŠ” ìœ„ì¹˜ì˜ íƒ€ì›Œê°€ ìˆëŠ” ê²½ìš°
 		if (PtInRect(&(storage[j]->GetStorageRect()), selectSkull->GetPos()))
 		{
 			if (storage[j]->GetSkullTile() != nullptr)
@@ -624,11 +624,11 @@ void StageScene::SetStorage()
 				isSelect = false;
 				break;
 			}
-			// Å¸¿öÀÇ À§Ä¡¸¦ ÇöÀç °ãÄ¡´Â Å¸ÀÏÀÇ À§Ä¡·Î Á¶Á¤
+			// íƒ€ì›Œì˜ ìœ„ì¹˜ë¥¼ í˜„ì¬ ê²¹ì¹˜ëŠ” íƒ€ì¼ì˜ ìœ„ì¹˜ë¡œ ì¡°ì •
 			selectSkull->SetPos(storage[j]->GetStoragePos());
-			// Å¸¿ö°¡ ¼ÓÇÑ Å¸ÀÏ°ªÀ» ÇöÀç Å¸ÀÏ·Î Á¶Á¤
+			// íƒ€ì›Œê°€ ì†í•œ íƒ€ì¼ê°’ì„ í˜„ì¬ íƒ€ì¼ë¡œ ì¡°ì •
 			selectSkull->SetStorage(storage[j]);
-			// Å¸¿öÀÇ ¼±ÅÃ¿©ºÎ ÇØÁ¦
+			// íƒ€ì›Œì˜ ì„ íƒì—¬ë¶€ í•´ì œ
 			storage[j]->SetSkullTile(selectSkull);
 			isSelect = false;
 			break;
@@ -636,7 +636,7 @@ void StageScene::SetStorage()
 	}
 }
 
-// °æ·Î ±×¸®±â
+// ê²½ë¡œ ê·¸ë¦¬ê¸°
 void StageScene::DrawPath(HDC hdc)
 {
 	SelectObject(hdc, pen);
