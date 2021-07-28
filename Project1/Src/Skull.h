@@ -3,10 +3,10 @@
 #include "Storage.h"
 
 /// <summary>
-/// Skull : °ÔÀÓ ³» µîÀåÇÏ´Â ¾Æ±º À¯´Ö(Å¸¿ö) Å¬·¡½º.
+/// Skull : ê²Œì„ ë‚´ ë“±ì¥í•˜ëŠ” ì•„êµ° ìœ ë‹›(íƒ€ì›Œ) í´ë˜ìŠ¤.
 /// </summary>
 
-// ½ºÄÃ »óÅÂ Á¤º¸
+// ìŠ¤ì»¬ ìƒíƒœ ì •ë³´
 enum class SKULLMode
 {
 	IDLE,
@@ -19,40 +19,40 @@ class AstarTile;
 class Skull : public GameObject
 {
 private:
-	int damage;			        // µ¥¹ÌÁö
-	int abilityPower;	        // °ø¼Ó
-	int attackSpeed;	        // ½ºÅ³ µ¥¹ÌÁö
-	int skillCount;		        // ½ºÅ³¿¡ ÇÊ¿äÇÑ Å¸°İ¼ö
-	int growthDmg;		        // ¼ºÀå µ¥¹ÌÁö(Å³)
-	int growthAp;		        // ¼ºÀå ½ºÅ³ µ¥¹ÌÁö(Å³)
-	int upgradeDmg;		        // ¼º±Ş¾÷ µ¥¹ÌÁö
-	int upgradeAp;		        // ¼º±Ş¾÷ °ø¼Ó
-	int upgradeAs;		        // ¼º±Ş¾÷ ½ºÅ³¿¡ ÇÊ¿äÇÑ Å¸°İ¼ö
-	int upgradeSc;		        // ¼º±Ş¾÷ ½ºÅ³µ¥¹ÌÁö
-	int idleFrame;		        // ±âº» µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int attackFrame;	        // °ø°İ µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	int skillFrame;		        // ½ºÅ³ µ¿ÀÛ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ
-	Image* img;			        // ½ºÄÃ ÀÌ¹ÌÁö ÀÌ¸§
-	SkullData* info;	        // ½ºÄÃ Á¤º¸
-	AstarTile* nowTile;         // ½ºÄÃ ÇöÀç À§Ä¡
-	ISOTILE* nowSkullTile;	    // ½ºÄÃÀÌ Á¸ÀçÇÏ´Â Å¸ÀÏ À§Ä¡
-	bool isSelected = false;	// (½ºÄÃÀÌ)¼±ÅÃµÇ¾ú´ÂÁö
-	Storage* storage;			// ½ºÄÃ ÀúÀå°ø°£
-	SKULLMode skullMode;		// ½ºÄÃÀÇ µ¿ÀÛ»óÅÂ
-	POINT prevPos;				// ½ºÄÃÀÇ ÀÌÀü À§Ä¡
-	POINT fieldPos;				// ÇÊµå À§Ä¡
+	int damage;			        // ë°ë¯¸ì§€
+	int abilityPower;	        // ê³µì†
+	int attackSpeed;	        // ìŠ¤í‚¬ ë°ë¯¸ì§€
+	int skillCount;		        // ìŠ¤í‚¬ì— í•„ìš”í•œ íƒ€ê²©ìˆ˜
+	int growthDmg;		        // ì„±ì¥ ë°ë¯¸ì§€(í‚¬)
+	int growthAp;		        // ì„±ì¥ ìŠ¤í‚¬ ë°ë¯¸ì§€(í‚¬)
+	int upgradeDmg;		        // ì„±ê¸‰ì—… ë°ë¯¸ì§€
+	int upgradeAp;		        // ì„±ê¸‰ì—… ê³µì†
+	int upgradeAs;		        // ì„±ê¸‰ì—… ìŠ¤í‚¬ì— í•„ìš”í•œ íƒ€ê²©ìˆ˜
+	int upgradeSc;		        // ì„±ê¸‰ì—… ìŠ¤í‚¬ë°ë¯¸ì§€
+	int idleFrame;		        // ê¸°ë³¸ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int attackFrame;	        // ê³µê²© ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	int skillFrame;		        // ìŠ¤í‚¬ ë™ì‘ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„
+	Image* img;			        // ìŠ¤ì»¬ ì´ë¯¸ì§€ ì´ë¦„
+	SkullData* info;	        // ìŠ¤ì»¬ ì •ë³´
+	AstarTile* nowTile;         // ìŠ¤ì»¬ í˜„ì¬ ìœ„ì¹˜
+	ISOTILE* nowSkullTile;	    // ìŠ¤ì»¬ì´ ì¡´ì¬í•˜ëŠ” íƒ€ì¼ ìœ„ì¹˜
+	bool isSelected = false;	// (ìŠ¤ì»¬ì´)ì„ íƒë˜ì—ˆëŠ”ì§€
+	Storage* storage;			// ìŠ¤ì»¬ ì €ì¥ê³µê°„
+	SKULLMode skullMode;		// ìŠ¤ì»¬ì˜ ë™ì‘ìƒíƒœ
+	POINT prevPos;				// ìŠ¤ì»¬ì˜ ì´ì „ ìœ„ì¹˜
+	POINT fieldPos;				// í•„ë“œ ìœ„ì¹˜
 public:
 	virtual HRESULT Init();
-	// À¯´Ö Á¤º¸ ¼¼ÆÃ
+	// ìœ ë‹› ì •ë³´ ì„¸íŒ…
 	void SetSkull(TILE_NUM_INFO buildPos, string* skullName);
 	void SetSkull(POINT pos, string* skullName);
-	// À¯´Ö À§Ä¡ ¼¼ÆÃ ¹× ÀÌµ¿
+	// ìœ ë‹› ìœ„ì¹˜ ì„¸íŒ… ë° ì´ë™
 	void SetPrevPos(POINT _prevPos) { prevPos = _prevPos; }
 	void SetPos(POINT _pos) { pos = _pos; }
 	void SetPos(int posX, int posY) { pos.x = posX; pos.y = posY; }
 	void SetSelected(bool _isSelected) { isSelected = _isSelected; }
 	void SetFieldPos(POINT _pos) { fieldPos = _pos; }
-	// À¯´ÖÀúÀå¼Ò ¼¼ÆÃ
+	// ìœ ë‹›ì €ì¥ì†Œ ì„¸íŒ…
 	void SetStorage(Storage* _storage) 
 	{ 
 		if (_storage == nullptr && storage != nullptr) 
