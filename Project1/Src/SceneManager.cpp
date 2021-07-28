@@ -57,7 +57,7 @@ GameNode * SceneManager::AddScene(string key, GameNode * scene)
 	if (scene == nullptr)
 		return nullptr;
 
-	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // (ÃÊ±âÈ­ ÈÄ) insert
+	mapSceneDatas.insert(pair<string, GameNode*>(key, scene)); // (ì´ˆê¸°í™” í›„) insert
 
 	return scene;
 }
@@ -77,16 +77,16 @@ HRESULT SceneManager::ChangeScene(string sceneName)
 
 	it = mapSceneDatas.find(sceneName);
 
-	if (it == mapSceneDatas.end()) // ¾øÀ» ½Ã
+	if (it == mapSceneDatas.end()) // ì—†ì„ ì‹œ
 	{
 		return E_FAIL;
 	}
 
 	if (it->second == currentScene) return S_OK; 
 
-	if (SUCCEEDED(it->second->Init())) // ¹Ù²Ü·Á°í ÇÏ´Â ¾À
+	if (SUCCEEDED(it->second->Init())) // ë°”ê¿€ë ¤ê³  í•˜ëŠ” ì”¬
 	{
-		if (currentScene) //(ÇöÀç ¾À)¸±¸®Áî
+		if (currentScene) //(í˜„ì¬ ì”¬)ë¦´ë¦¬ì¦ˆ
 		{
 			currentScene->Release();
 		}
@@ -105,14 +105,14 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 
 	it = mapSceneDatas.find(sceneName);
 
-	if (it == mapSceneDatas.end()) // ¸ÊÀÌ ¾øÀ» ½Ã
+	if (it == mapSceneDatas.end()) // ë§µì´ ì—†ì„ ì‹œ
 	{
 		return E_FAIL;
 	}
 
 	if (it->second == currentScene) return S_OK;
 
-	// change Áß°£¿¡ µé¾î°¥ ·Îµù¾À
+	// change ì¤‘ê°„ì— ë“¤ì–´ê°ˆ ë¡œë”©ì”¬
 	map<string, GameNode*>::iterator itLoading;
 	itLoading = mapLoadingSceneDatas.find(loadingSceneName);
 
@@ -121,9 +121,9 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 		return ChangeScene(sceneName);
 	}
 
-	if (SUCCEEDED(itLoading->second->Init())) //¹Ù²Ü·Á°í ÇÏ´Â ¾À
+	if (SUCCEEDED(itLoading->second->Init())) //ë°”ê¿€ë ¤ê³  í•˜ëŠ” ì”¬
 	{
-		if (currentScene) //ÇöÀç ¾À ÇØÁ¦
+		if (currentScene) //í˜„ì¬ ì”¬ í•´ì œ
 		{
 			currentScene->Release();
 		}
@@ -133,10 +133,10 @@ HRESULT SceneManager::ChangeScene(string sceneName, string loadingSceneName)
 
 		currentScene = loadingScene;
 
-		// ¸ÖÆ¼¾²·¹µå·Î Ã¼ÀÎÁöÇÒ ¸ŞÀÎ¾À ÃÊ±âÈ­
+		// ë©€í‹°ì“°ë ˆë“œë¡œ ì²´ì¸ì§€í•  ë©”ì¸ì”¬ ì´ˆê¸°í™”
 		HANDLE hThread;
 		DWORD loadThredID;
-		CloseHandle(CreateThread(NULL, 0, LoadingThread, NULL, 0, &loadThredID));  //¾²·¹µå ´İ±â
+		CloseHandle(CreateThread(NULL, 0, LoadingThread, NULL, 0, &loadThredID));  //ì“°ë ˆë“œ ë‹«ê¸°
 
 		return S_OK;
 	}
