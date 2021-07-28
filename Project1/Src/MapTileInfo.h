@@ -3,7 +3,7 @@
 #include "pch.h"
 
 /// <summary>
-/// MapTileInfo : °ÔÀÓ ³» Å¸¿ö ¹èÄ¡°¡ °¡´ÉÇÑ ±¸¿ª °£ Å¸¿ö ¹èÄ¡°¡ °¡´ÉÇÑ Å¸ÀÏµéÀ» ¹èÄ¡ÇØÁÖ´Â Å¬·¡½º.
+/// MapTileInfo : ê²Œìž„ ë‚´ íƒ€ì›Œ ë°°ì¹˜ê°€ ê°€ëŠ¥í•œ êµ¬ì—­ ê°„ íƒ€ì›Œ ë°°ì¹˜ê°€ ê°€ëŠ¥í•œ íƒ€ì¼ë“¤ì„ ë°°ì¹˜í•´ì£¼ëŠ” í´ëž˜ìŠ¤.
 /// </summary>
 class MapTileInfo : public SingletonBase<MapTileInfo>
 {
