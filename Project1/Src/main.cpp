@@ -5,10 +5,10 @@
 
 
 
-// Àü¿ªº¯¼ö
-HINSTANCE	g_hInstance;	// ÇÁ·Î±×·¥ ÀÎ½ºÅÏ½º ÇÚµé
-HWND		g_hWnd;			// À©µµ¿ì ÇÚµé
-LPSTR		g_lpszClass = (LPSTR)TEXT("À©¸ŞÀÎÀÇ ½ÃÀÛ");
+// ì „ì—­ë³€ìˆ˜
+HINSTANCE	g_hInstance;	// í”„ë¡œê·¸ë¨ ì¸ìŠ¤í„´ìŠ¤ í•¸ë“¤
+HWND		g_hWnd;			// ìœˆë„ìš° í•¸ë“¤
+LPSTR		g_lpszClass = (LPSTR)TEXT("ìœˆë©”ì¸ì˜ ì‹œì‘");
 
 POINT		g_ptMouse;
 
@@ -21,7 +21,7 @@ void SetWindowSize(int x, int y, int width, int height);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	WPARAM wParam, LPARAM lParam);
 
-// À©µµ¿ì¸¦ »ı¼ºÇÏ±â À§ÇÑ ÇÔ¼ö
+// ìœˆë„ìš°ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 	LPSTR _lpszCmdParam, int nCmdShow)
 {
@@ -32,11 +32,11 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 
 	srand(time(NULL));
 
-	// À©µµ¿ì »ı¼ºÀ» À§ÇÑ ±âº»¼ÂÆÃ
+	// ìœˆë„ìš° ìƒì„±ì„ ìœ„í•œ ê¸°ë³¸ì…‹íŒ…
 	g_hInstance = _hInstance;
 	WNDCLASS wndClass;
-	wndClass.cbClsExtra = 0;	// Å¬·¡½º ¿©ºĞ ¸Ş¸ğ¸®
-	wndClass.cbWndExtra = 0;	// À©µµ¿ì ¿©ºĞ ¸Ş¸ğ¸®
+	wndClass.cbClsExtra = 0;	// í´ë˜ìŠ¤ ì—¬ë¶„ ë©”ëª¨ë¦¬
+	wndClass.cbWndExtra = 0;	// ìœˆë„ìš° ì—¬ë¶„ ë©”ëª¨ë¦¬
 	wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
@@ -46,10 +46,10 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 	wndClass.lpszMenuName = NULL;
 	wndClass.style = CS_HREDRAW | CS_VREDRAW;
 
-	// À©µµ¿ì Å¬·¡½º µî·Ï
+	// ìœˆë„ìš° í´ë˜ìŠ¤ ë“±ë¡
 	RegisterClass(&wndClass);
 
-	// À©µµ¿ì »ı¼º
+	// ìœˆë„ìš° ìƒì„±
 	g_hWnd = CreateWindow(g_lpszClass, g_lpszClass,
 		WS_OVERLAPPEDWINDOW,
 		WINSTART_X, WINSTART_Y,
@@ -59,19 +59,19 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 		g_hInstance,
 		NULL);
 
-	// À©µµ¿ì Ãâ·Â
+	// ìœˆë„ìš° ì¶œë ¥
 	ShowWindow(g_hWnd, nCmdShow);
 
-	// À©µµ¿ì ÀÛ¾÷¿µ¿ª ¼³Á¤
+	// ìœˆë„ìš° ì‘ì—…ì˜ì—­ ì„¤ì •
 	SetWindowSize(WINSTART_X, WINSTART_Y, WINSIZE_X, WINSIZE_Y);
 
-	// ¸ŞÀÎ°ÔÀÓ ÃÊ±âÈ­
+	// ë©”ì¸ê²Œì„ ì´ˆê¸°í™”
 	if (mainGame.Init())
 	{
 		return 0;
 	}
 
-	// ¸Ş½ÃÁö Å¥¿¡ ÀÖ´Â ¸Ş½ÃÁö Ã³¸®
+	// ë©”ì‹œì§€ íì— ìˆëŠ” ë©”ì‹œì§€ ì²˜ë¦¬
 	MSG message;
 	while (true)
 	{
@@ -90,7 +90,7 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 			mainGame.Render();
 		}
 	}
-	// ÇØÁ¦
+	// í•´ì œ
 	mainGame.Release();
 
 	return message.wParam;
@@ -99,15 +99,15 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance,
 
 void SetWindowSize(int x, int y, int width, int height)
 {
-	// À©µµ¿ì ÀÛ¾÷¿µ¿ª ÁöÁ¤
+	// ìœˆë„ìš° ì‘ì—…ì˜ì—­ ì§€ì •
 	RECT rc;
 	rc.left = 0; rc.top = 0;
 	rc.right = width; rc.bottom = height;
 
-	// ½ÇÁ¦ À©µµ¿ì Å©±â ¹Ş¾Æ¿Â´Ù.
+	// ì‹¤ì œ ìœˆë„ìš° í¬ê¸° ë°›ì•„ì˜¨ë‹¤.
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
 
-	// ÀÌµ¿
+	// ì´ë™
 	MoveWindow(g_hWnd, x, y, rc.right - rc.left, rc.bottom - rc.top, true);
 }
 
