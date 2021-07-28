@@ -7,7 +7,7 @@ using namespace std;
 
 class GameNode;
 /// <summary>
-/// SceneManager : ¾À(scene)°ü¸® ¸Å´ÏÀú Å¬·¡½º
+/// SceneManager : ì”¬(scene)ê´€ë¦¬ ë§¤ë‹ˆì € í´ë˜ìŠ¤
 /// </summary>
 class SceneManager : public SingletonBase<SceneManager>
 {
@@ -16,23 +16,23 @@ private:
 	map<string, GameNode*> mapLoadingSceneDatas;
 
 public:
-	static GameNode* currentScene; // ÇöÀç ¾À
-	static GameNode* loadingScene; // ·Îµù ¾À
-	static GameNode* readyScene;   // ÃÊ±âÈ­¸¦ À§ÇÑ ¿¹ºñ ¾À
+	static GameNode* currentScene; // í˜„ì¬ ì”¬
+	static GameNode* loadingScene; // ë¡œë”© ì”¬
+	static GameNode* readyScene;   // ì´ˆê¸°í™”ë¥¼ ìœ„í•œ ì˜ˆë¹„ ì”¬
 
 public:
 
-	HRESULT Init();		// ¸â¹ö º¯¼ö ÃÊ±âÈ­, ¸Ş¸ğ¸® ÇÒ´ç
-	void Release();		// ¸Ş¸ğ¸® ÇØÁ¦
-	void Update();		// ÇÁ·¹ÀÓ ´ÜÀ§ °ÔÀÓ ·ÎÁ÷ ½ÇÇà (µ¥ÀÌÅÍ º¯°æ)
-	void Render(HDC hdc);	// ÇÁ·¹ÀÓ ´ÜÀ§ Ãâ·Â (ÀÌ¹ÌÁö, ÅØ½ºÆ® µî)
+	HRESULT Init();		// ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™”, ë©”ëª¨ë¦¬ í• ë‹¹
+	void Release();		// ë©”ëª¨ë¦¬ í•´ì œ
+	void Update();		// í”„ë ˆì„ ë‹¨ìœ„ ê²Œì„ ë¡œì§ ì‹¤í–‰ (ë°ì´í„° ë³€ê²½)
+	void Render(HDC hdc);	// í”„ë ˆì„ ë‹¨ìœ„ ì¶œë ¥ (ì´ë¯¸ì§€, í…ìŠ¤íŠ¸ ë“±)
 
-	// ¾À Ãß°¡
+	// ì”¬ ì¶”ê°€
 	GameNode* AddScene(string key, GameNode* scene);
 	GameNode* AddLoadingScene(string key, GameNode* scene);
 	
 
-	// ¾À Ã¼ÀÎÁö
+	// ì”¬ ì²´ì¸ì§€
 	HRESULT ChangeScene(string sceneName);
 	HRESULT ChangeScene(string sceneName, string loadingSceneName);
 
