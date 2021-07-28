@@ -3,16 +3,16 @@
 
 class Skull;
 /// <summary>
-/// Storage : °ÔÀÓ ³» ½ºÄÃÀÇ º¸°ü¼Ò Å¬·¡½º.
+/// Storage : ê²Œì„ ë‚´ ìŠ¤ì»¬ì˜ ë³´ê´€ì†Œ í´ë˜ìŠ¤.
 /// </summary>
 class Storage
 {
 private:
-	POINT storagePos;	// ÀúÀå¼Ò À§Ä¡
-	bool isEmpty;		// ºñ¾îÀÖ´Â Áö ¿©ºÎ
-	int id;				// Ä­ ¹øÈ£
-	RECT storageRc;		// ÀúÀå¼Ò Ä­ÀÇ ÆÇÁ¤ ¹üÀ§
-	Skull* skullTile;	// ½ºÄÃ
+	POINT storagePos;	// ì €ì¥ì†Œ ìœ„ì¹˜
+	bool isEmpty;		// ë¹„ì–´ìˆëŠ” ì§€ ì—¬ë¶€
+	int id;				// ì¹¸ ë²ˆí˜¸
+	RECT storageRc;		// ì €ì¥ì†Œ ì¹¸ì˜ íŒì • ë²”ìœ„
+	Skull* skullTile;	// ìŠ¤ì»¬
 public:
 	void SetIsEmpty(bool _isEmpty) { isEmpty = _isEmpty; }
 	bool GetIsEmpty() { return isEmpty; }
