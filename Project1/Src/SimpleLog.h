@@ -6,7 +6,7 @@
 using namespace std;
 
 /// <summary>
-/// °ÔÀÓ ³» ¿À·ù¸¦ °ËÅäÇÏ±â À§ÇØ ·Î±×Ã¢À» º¸±â À§ÇÑ Å¬·¡½º.
+/// ê²Œì„ ë‚´ ì˜¤ë¥˜ë¥¼ ê²€í† í•˜ê¸° ìœ„í•´ ë¡œê·¸ì°½ì„ ë³´ê¸° ìœ„í•œ í´ë˜ìŠ¤.
 /// </summary>
 class Debug : public SingletonBase<Debug>
 {
