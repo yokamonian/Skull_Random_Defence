@@ -20,17 +20,17 @@ void TimeManager::Release()
 
 void TimeManager::Update(float lockFPS)
 {
-	// Å¸ÀÌ¸Ó ÇÔ¼ö ½ÇÇà
+	// íƒ€ì´ë¨¸ í•¨ìˆ˜ ì‹¤í–‰
 	if (timer)
 	{
 		timer->Tick(lockFPS);
 	}
-	// ¾Ë°í¸®Áò ½ÃÀÛ½Ã ½ÇÇà
+	// ì•Œê³ ë¦¬ì¦˜ ì‹œì‘ì‹œ ì‹¤í–‰
 	if (isTestStart)
 	{
 		testTime += timer->GetDeltaTime();
 	}
-	// ¿şÀÌºê ½ÃÀÛ ½Ã ½ÇÇà
+	// ì›¨ì´ë¸Œ ì‹œì‘ ì‹œ ì‹¤í–‰
 	if (isWaveStart)
 	{
 		waveTime += timer->GetDeltaTime();
@@ -39,7 +39,7 @@ void TimeManager::Update(float lockFPS)
 
 void TimeManager::Render(HDC hdc)
 {
-	// ÇÁ·¹ÀÓ ¹× ¿ùµåÅ¸ÀÓ Ç¥±â
+	// í”„ë ˆì„ ë° ì›”ë“œíƒ€ì„ í‘œê¸°
 #ifdef _DEBUG
 	if (timer)
 	{
