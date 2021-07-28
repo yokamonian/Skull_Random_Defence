@@ -3,8 +3,8 @@
 #include "pch.h"
 
 /// <summary>
-/// StageUI : Card Å¬·¡½º ¸Å´ÏÀú¸¦ ¸ñÀûÀ¸·Î ¸¸µç Å¬·¡½ºÀÌ³ª ½ºÅ×ÀÌÁö¾À¿¡ º´ÇÕµÊÀ¸·Î½á ÁÖ¼®µÈ Å¬·¡½º.
-/// ÇöÀç±îÁø ÁÖ¼®»óÅÂÀÌ³ª °ÔÀÓ ±¸Á¶ º¯ÇüÀÇ ¿©Áö¸¦ °í·ÁÇÏ¿© º¸·ùÁß.
+/// StageUI : Card í´ëž˜ìŠ¤ ë§¤ë‹ˆì €ë¥¼ ëª©ì ìœ¼ë¡œ ë§Œë“  í´ëž˜ìŠ¤ì´ë‚˜ ìŠ¤í…Œì´ì§€ì”¬ì— ë³‘í•©ë¨ìœ¼ë¡œì¨ ì£¼ì„ëœ í´ëž˜ìŠ¤.
+/// í˜„ìž¬ê¹Œì§„ ì£¼ì„ìƒíƒœì´ë‚˜ ê²Œìž„ êµ¬ì¡° ë³€í˜•ì˜ ì—¬ì§€ë¥¼ ê³ ë ¤í•˜ì—¬ ë³´ë¥˜ì¤‘.
 /// </summary>
 //typedef struct tagStorage
 //{
