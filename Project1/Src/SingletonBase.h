@@ -1,8 +1,8 @@
 #pragma once
 
 /// <summary>
-/// SingletonBase : °ÔÀÓ ³» °¢Á¾ ¸Å´ÏÀú Å¬·¡½ºÀÇ ±â¹İ ½Ì±ÛÅæ Å¬·¡½º.
-///					½Ì±ÛÅæ ÆĞÅÏÀ» ¸ñÀûÀ¸·Î ¸¸µé¾îÁø Å¬·¡½º.
+/// SingletonBase : ê²Œì„ ë‚´ ê°ì¢… ë§¤ë‹ˆì € í´ë˜ìŠ¤ì˜ ê¸°ë°˜ ì‹±ê¸€í†¤ í´ë˜ìŠ¤.
+///					ì‹±ê¸€í†¤ íŒ¨í„´ì„ ëª©ì ìœ¼ë¡œ ë§Œë“¤ì–´ì§„ í´ë˜ìŠ¤.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 template<typename T>
@@ -16,17 +16,17 @@ protected:
 
 public:
 	static T* GetSingleton();
-	void ReleaseSingleton();	// ÇØÁ¦
+	void ReleaseSingleton();	// í•´ì œ
 };
 
-// ½Ì±ÛÅæ ÃÊ±âÈ­
+// ì‹±ê¸€í†¤ ì´ˆê¸°í™”
 template <typename T>
 T* SingletonBase<T>::instance = 0;
 
 template <typename T>
 T* SingletonBase<T>::GetSingleton()
 {
-	// »ı¼ºµÇÁö ¾ÊÀº °æ¿ì
+	// ìƒì„±ë˜ì§€ ì•Šì€ ê²½ìš°
 	if (!instance)
 	{
 		instance = new T;
