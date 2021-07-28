@@ -4,18 +4,18 @@
 
 class Timer;
 /// <summary>
-/// TimeManager : Time Å¬·¡½º¸¦ È°¿ë. °ÔÀÓ ³» °¢Á¾ Å¸ÀÌ¸Ó ¸Å´ÏÀú Å¬·¡½º.
+/// TimeManager : Time í´ë˜ìŠ¤ë¥¼ í™œìš©. ê²Œì„ ë‚´ ê°ì¢… íƒ€ì´ë¨¸ ë§¤ë‹ˆì € í´ë˜ìŠ¤.
 /// </summary>
 class TimeManager : public SingletonBase<TimeManager>
 {
 private:
-	Timer* timer;		// Å¸ÀÌ¸Ó
+	Timer* timer;		// íƒ€ì´ë¨¸
 	char strText[256];
-	float testTime;		// ¾Ë°í¸®Áò ³» ½Ã°£ÃøÁ¤ º¯¼ö
-	float waveTime;		// ¿şÀÌºê ½Ã°£
-	bool isTestStart;	// ¾Ë°í¸®Áò ½ÃÀÛ ¿©ºÎ
-	bool isGameStart;	// °ÔÀÓ ½ÃÀÛ ¿©ºÎ
-	bool isWaveStart;	// ¿şÀÌºê ½ÃÀÛ¿©ºÎ
+	float testTime;		// ì•Œê³ ë¦¬ì¦˜ ë‚´ ì‹œê°„ì¸¡ì • ë³€ìˆ˜
+	float waveTime;		// ì›¨ì´ë¸Œ ì‹œê°„
+	bool isTestStart;	// ì•Œê³ ë¦¬ì¦˜ ì‹œì‘ ì—¬ë¶€
+	bool isGameStart;	// ê²Œì„ ì‹œì‘ ì—¬ë¶€
+	bool isWaveStart;	// ì›¨ì´ë¸Œ ì‹œì‘ì—¬ë¶€
 
 public:
 	virtual HRESULT Init();
