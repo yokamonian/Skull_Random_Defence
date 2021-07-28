@@ -10,10 +10,10 @@ HRESULT Skull::Init()
 
 void Skull::SetSkull(TILE_NUM_INFO buildPos, string* skullName)
 {
-	// ю╞╢ж ╣╔юлем ╨ёюл╫╨©║╪╜ ╫╨дц а╓╨╦ ╨р╥╞©ю╠Б
+	// Л°═К▀⌡ К█╟Л²╢М└╟ К╡═Л²╢Л┼╓Л≈░Л└° Л┼╓Л╩╛ Л═∙КЁ╢ К╤┬К÷╛Л≤╓Й╦╟
 	SkullData* skullInfo = UnitDataBase::GetSingleton()->GetSkullInfo(*(skullName));
 
-	// е╦юо ю╖д║©║ ю╞╢ж абг╔ ╪Ёа╓
+	// М┐─Л²╪ Л°└Л╧≤Л≈░ Л°═К▀⌡ Л╒▄М▒° Л└╓Л═∙
 	int posX, posY;
 	if(buildPos.idX % 2 == 0)
 		posX = ISO_START_X + ((buildPos.idX + 1) * ISO_TILE_SIZE_X);
@@ -22,7 +22,7 @@ void Skull::SetSkull(TILE_NUM_INFO buildPos, string* skullName)
 	posY = ISO_START_Y + (buildPos.idY * ISO_TILE_HALF_SIZE_Y);
 	pos = { posX, posY };
 
-	// ╫╨дц ╪╪фц
+	// Л┼╓Л╩╛ Л└╦М▄┘
 	img = ImageManager::GetSingleton()->FindImage(skullInfo->skullName);
 	this->damage = skullInfo->damage;
 	this->abilityPower = skullInfo->abilityPower;
@@ -76,7 +76,7 @@ void Skull::Release()
 
 void Skull::Update()
 {
-	// ╩Себ©║ ╢ы╦╔ ╬ж╢о╦чюл╪г ╪Ёа╓ ╬В╣╔юлф╝
+	// Л┐│М┐°Л≈░ К▀╓К╔╦ Л∙═К▀┬К╘■Л²╢Л┘≤ Л└╓Л═∙ Л≈┘К█╟Л²╢М┼╦
 	frame++;
 	if (frame % 7 == 6)
 	{
