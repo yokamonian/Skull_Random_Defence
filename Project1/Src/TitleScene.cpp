@@ -7,8 +7,8 @@ HRESULT TitleScene::Init()
 	menuNum = 0;
 	pos = { 0, WINSIZE_Y };
 	menuPointer = { 0.0f, 0.0f };
-	bg = ImageManager::GetSingleton()->AddImage("ÀÎÆ®·Î", "Image/intro.bmp", WINSIZE_X, WINSIZE_Y);
-	tank = ImageManager::GetSingleton()->AddImage("ÅÊÅ©", "Image/PlayerTank.bmp", 
+	bg = ImageManager::GetSingleton()->AddImage("ì¸íŠ¸ë¡œ", "Image/intro.bmp", WINSIZE_X, WINSIZE_Y);
+	tank = ImageManager::GetSingleton()->AddImage("íƒ±í¬", "Image/PlayerTank.bmp", 
 		menuPointer.x, menuPointer.y, 320, 200, 8, 5, true, RGB( 0, 0, 0));
 
 	elapsedTime = 0;
@@ -67,10 +67,10 @@ void TitleScene::Update()
 			switch (menuNum)
 			{
 			case 0:
-				SceneManager::GetSingleton()->ChangeScene("¹èÆ²");
+				SceneManager::GetSingleton()->ChangeScene("ë°°í‹€");
 				break;
 			case 1:
-				SceneManager::GetSingleton()->ChangeScene("¸Ê¿¡µğÅÍ");
+				SceneManager::GetSingleton()->ChangeScene("ë§µì—ë””í„°");
 				break;
 			case 2:
 				break;
