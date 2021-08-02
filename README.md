@@ -58,4 +58,5 @@
 >       [Astar 관련 코드의 양이 많아 시스템 기획으로 대체하였습니다.]
 >     </div>
 >     + <사진첨부 - 타워설치>
->     ![SetSkull](https://user-images.githubusercontent.com/63716789/127861118-fe410599-91a8-40c2-82b5-621c1b85d364.GIF)
+>     <p align="center"><img src="https://user-images.githubusercontent.com/63716789/127861701-9607d699-e69c-4b6d-b59f-4d964660c6d6.GIF"></p>
+
